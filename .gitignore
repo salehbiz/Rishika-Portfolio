@@ -1,0 +1,17 @@
+# System files
+.DS_Store
+*.log
+
+# Dependencies and IDEs
+node_modules/
+.vercel/
+.agents/
+scratch/
+
+# Ignore raw design PDFs (not referenced by the site)
+*.pdf
+**/*.pdf
+
+# Ignore raw, unused design directories containing GBs of files
+CSIM - Creatives/
+Portfolio Website/

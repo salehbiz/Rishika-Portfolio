@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishika's Projects | Detailed Portfolio</title>
+  <link rel="stylesheet" href="styles.css?v=12" />
+  <style>
+    body {
+      background: #050505;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Layout for project details */
+    .projects-hero {
+      padding: 8rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .projects-hero h1 {
+      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .projects-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: #a3a3a3;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Filters */
+    .filters-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #a3a3a3;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    /* Details List */
+    .projects-list {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8rem;
+    }
+
+    .project-detail-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4rem;
+      padding: 3rem;
+      background: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 40px;
+      scroll-margin-top: 120px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .project-detail-item:hover {
+      border-color: rgba(0, 216, 255, 0.5);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 216, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .project-media-wrapper {
+      width: 50%;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 400px;
+      background: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-media-wrapper img, .project-media-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .project-detail-item:hover .project-media-wrapper img,
+    .project-detail-item:hover .project-media-wrapper video {
+      transform: scale(1.03);
+    }
+
+    .project-info-wrapper {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-tag {
+      color: #00d8ff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-info-wrapper h2 {
+      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .project-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #a3a3a3;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-meta-box {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid #00d8ff;
+      padding: 1rem 1.25rem;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #d4d4d4;
+    }
+
+    .project-meta-box strong {
+      color: #ffffff;
+    }
+
+    .project-action-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.85rem 2rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      align-self: flex-start;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-action-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Alternating layout styling */
+    .projects-list .project-detail-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .project-detail-item {
+        gap: 2.5rem;
+        padding: 2.5rem;
+        border-radius: 32px;
+      }
+      .project-media-wrapper {
+        height: 320px;
+      }
+      .project-info-wrapper h2 {
+        font-size: 1.85rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-hero h1 {
+        font-size: 2.5rem;
+      }
+      .projects-list {
+        gap: 4rem;
+        padding-bottom: 4rem;
+      }
+      .project-detail-item {
+        flex-direction: column !important;
+        align-items: stretch;
+        padding: 1.5rem;
+        border-radius: 20px;
+      }
+      .project-media-wrapper {
+        width: 100%;
+        height: 200px;
+        border-radius: 12px;
+      }
+      .project-info-wrapper {
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+      .project-info-wrapper h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation Header -->
+  <nav class="nav-laura">
+    <a href="index.html" class="logo-laura">RISHIKA WALIA</a>
+    <div class="nav-links-laura">
+      <a href="index.html#what-we-do">PORTFOLIO</a>
+      <a href="index.html#about">ABOUT ME</a>
+      <a href="index.html#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="projects-hero">
+    <p style="color: #00d8ff; letter-spacing: 0.2em; font-weight: 600; font-size: 0.75rem; text-transform: uppercase;">Creative Archive</p>
+    <h1>Project Showcase</h1>
+    <p>A deep dive into the design strategy, packaging concepts, brand identities, and retail campaign systems created for various brands.</p>
+    
+    <!-- Category Filters -->
+    <div class="filters-container">
+      <button class="filter-btn active" data-category="all">All Projects</button>
+      <button class="filter-btn" data-category="retail">Retail & OOH</button>
+      <button class="filter-btn" data-category="branding">Brand Identity</button>
+      <button class="filter-btn" data-category="packaging">Packaging</button>
+      <button class="filter-btn" data-category="media">Video & Media</button>
+    </div>
+  </header>
+
+  <!-- Projects Detailed List (Populated Dynamically) -->
+  <main class="projects-list">
+    <div style="text-align:center; padding: 4rem 0; font-family:'Inter',sans-serif; color:#737373;">
+      Loading showcase...
+    </div>
+  </main>
+
+  <!-- Premium Footer -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">RISHIKA WALIA</a>
+        <div class="footer-nav">
+          <a href="index.html#what-we-do">PORTFOLIO</a>
+          <a href="index.html#about">ABOUT ME</a>
+          <a href="index.html#contact">CONTACT</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2026 Rishika Walia. All rights reserved.
+        </p>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/rishikawalia" target="_blank" rel="noreferrer noopener">LINKEDIN</a>
+          <a href="https://instagram.com/canadiansimglobal" target="_blank" rel="noreferrer noopener">INSTAGRAM</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js?v=10"></script>
+  
+  <script>
+    (function() {
+      // Dynamically load database with cache buster to prevent local browser caching
+      const dbScript = document.createElement('script');
+      dbScript.src = 'projects-data.js?v=' + Date.now();
+      dbScript.onload = function() {
+        initPage();
+      };
+      document.head.appendChild(dbScript);
+
+      function initPage() {
+        const listContainer = document.querySelector('.projects-list');
+
+        // Render Project Cards dynamically
+        function renderProjects(category = 'all') {
+          if (typeof projectsData === 'undefined') return;
+
+          listContainer.innerHTML = '';
+          
+          const filtered = projectsData.filter(p => category === 'all' || p.category === category);
+          
+          if (filtered.length === 0) {
+            listContainer.innerHTML = '<p style="text-align:center; color:#737373;">No projects found in this category.</p>';
+            return;
+          }
+
+          filtered.forEach(project => {
+            const item = document.createElement('article');
+            item.className = 'project-detail-item';
+            item.id = project.id;
+            item.setAttribute('data-cat', project.category);
+            
+            let mediaHTML = '';
+            if (project.fileType === 'video') {
+              mediaHTML = `
+                <video muted playsinline loop autoplay>
+                  <source src="${project.fileLink}" type="video/mp4">
+                </video>
+              `;
+            } else {
+              mediaHTML = `<img src="${project.image}" alt="${project.title}">`;
+            }
+
+            item.innerHTML = `
+              <div class="project-media-wrapper">
+                <a href="project.html?id=${project.id}" style="width:100%; height:100%; display:block;">
+                  ${mediaHTML}
+                </a>
+              </div>
+              <div class="project-info-wrapper">
+                <span class="project-tag">${project.categoryLabel}</span>
+                <h2><a href="project.html?id=${project.id}" style="color:inherit; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='#00d8ff'" onmouseout="this.style.color='inherit'">${project.title}</a></h2>
+                <div class="project-meta-box">
+                  <strong>Client / Brand:</strong> ${project.client}<br>
+                  <strong>Scope:</strong> ${project.scope}
+                </div>
+                <p class="project-desc">${project.description}</p>
+                <a href="project.html?id=${project.id}" class="project-action-btn">VIEW DETAILS</a>
+              </div>
+            `;
+            listContainer.appendChild(item);
+          });
+        }
+
+        // Initial Render
+        renderProjects();
+
+        // Category Filter Click Event
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.getAttribute('data-category');
+            renderProjects(category);
+          });
+        });
+
+        // ===================== PARTICLES =====================
+        const pCanvas = document.getElementById('particles-canvas');
+        const pCtx = pCanvas.getContext('2d');
+        let particles = [];
+
+        function resizeParticles() {
+          pCanvas.width = window.innerWidth;
+          pCanvas.height = window.innerHeight;
+          createParticles();
+        }
+
+        function createParticles() {
+          particles = [];
+          const count = Math.floor((pCanvas.width * pCanvas.height) / 12000);
+          for (let i = 0; i < count; i++) {
+            particles.push({
+              x: Math.random() * pCanvas.width,
+              y: Math.random() * pCanvas.height,
+              vx: (Math.random() - 0.5) * 0.3,
+              vy: (Math.random() - 0.5) * 0.3,
+              size: Math.random() * 1.5 + 0.5,
+              opacity: Math.random() * 0.6 + 0.2
+            });
+          }
+        }
+
+        function animateParticles() {
+          pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+          for (const p of particles) {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = pCanvas.width;
+            if (p.x > pCanvas.width) p.x = 0;
+            if (p.y < 0) p.y = pCanvas.height;
+            if (p.y > pCanvas.height) p.y = 0;
+            pCtx.beginPath();
+            pCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            pCtx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+            pCtx.fill();
+          }
+          requestAnimationFrame(animateParticles);
+        }
+
+        resizeParticles();
+        window.addEventListener('resize', resizeParticles);
+        animateParticles();
+      }
+    })();
+  </script>
+</body>
+</html>
