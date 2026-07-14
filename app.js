@@ -98,16 +98,30 @@
 
   function handleScrollEffects() {
     const scrollY = window.scrollY;
+    const statementSection = document.querySelector('.statement-section');
     
-    // Toggle Nav Bar style on scroll
-    if (scrollY > 50) {
-      navbar.classList.add('scrolled');
+    if (statementSection) {
+      const rect = statementSection.getBoundingClientRect();
+      const statementSectionTop = rect.top + scrollY;
+      // Trigger scrolled nav styling when the navbar enters the statement section
+      if (scrollY >= statementSectionTop - 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     } else {
-      navbar.classList.remove('scrolled');
+      // Fallback
+      if (scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     }
   }
 
   window.addEventListener('scroll', handleScrollEffects, { passive: true });
+  // Initial check on load
+  handleScrollEffects();
 
 
 
