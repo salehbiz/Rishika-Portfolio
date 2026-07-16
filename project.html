@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="styles.css?v=12" />
   <style>
     body {
-      background: #050505;
-      color: #ffffff;
+      background: #ffffff;
+      color: #1a1a1a;
       margin: 0;
       padding: 0;
     }
@@ -29,7 +29,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: #a3a3a3;
+      color: #777777;
       text-decoration: none;
       text-transform: uppercase;
       margin-bottom: 3rem;
@@ -37,7 +37,7 @@
     }
 
     .back-to-portfolio:hover {
-      color: #00d8ff;
+      color: #1a1a1a;
     }
 
     /* Split Layout */
@@ -57,15 +57,15 @@
 
     .media-box {
       width: 100%;
-      border-radius: 32px;
+      border-radius: 0;
       overflow: hidden;
-      background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      background: transparent;
+      border: none;
+      box-shadow: none;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 400px;
+      min-height: auto;
     }
 
     .media-box img, .media-box video {
@@ -80,7 +80,7 @@
     }
 
     .project-title-tag {
-      color: #00d8ff;
+      color: #4e6151;
       font-family: 'Inter', sans-serif;
       font-size: 0.8rem;
       font-weight: 600;
@@ -91,37 +91,40 @@
     }
 
     .project-content-col h1 {
-      font-family: 'Inter Tight', 'Inter', sans-serif;
-      font-size: 3.25rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
       margin: 0 0 1.5rem;
+      color: #1a1a1a;
     }
 
     .project-meta-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
-      padding: 1.5rem;
-      background: rgba(18, 18, 18, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-left: 3px solid #00d8ff;
-      border-radius: 0 16px 16px 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 2.5rem;
+      margin-bottom: 3rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
     }
 
     .meta-item {
       font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
-      color: #d4d4d4;
+      color: #444444;
       line-height: 1.5;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding-bottom: 0.75rem;
     }
 
     .meta-item strong {
-      color: #ffffff;
+      color: #1a1a1a;
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.25rem;
@@ -131,7 +134,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 1.05rem;
       line-height: 1.75;
-      color: #a3a3a3;
+      color: #555555;
       margin-bottom: 3rem;
     }
 
@@ -142,29 +145,29 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 1rem 2.25rem;
-      border-radius: 30px;
+      background: #1a1a1a;
+      border: 1px solid #1a1a1a;
+      padding: 0.95rem 2rem;
+      border-radius: 0;
       text-decoration: none;
       text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: none;
+      transition: all 0.3s ease;
     }
 
     .project-action-button:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
+      background: transparent;
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+      box-shadow: none;
+      transform: none;
     }
 
     /* Bottom Slider Navigation */
     .project-nav-divider {
       border: 0;
       height: 1px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.08);
       margin-bottom: 4rem;
     }
 
@@ -203,19 +206,19 @@
     }
 
     .nav-project-btn span.nav-title {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #ffffff;
-      transition: color 0.3s ease;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     .nav-project-btn:hover span.nav-dir {
-      color: #00d8ff;
+      color: #4e6151;
     }
     
     .nav-project-btn:hover span.nav-title {
-      color: #ffffff;
+      color: #4e6151;
       transform: translateX(-4px);
     }
 
@@ -265,7 +268,7 @@
     }
   </style>
 </head>
-<body>
+<body class="project-detail-page">
 
   <!-- Particles Background -->
   <canvas id="particles-canvas"></canvas>
@@ -383,7 +386,7 @@
             featuredContentHTML = `
               <div class="project-slides-stack" style="display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; margin: 0 auto;">
                 ${project.featuredImages.map((imgUrl, idx) => `
-                  <div class="slide-item-wrapper" style="border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(18, 18, 18, 0.85); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1); width: 100%;">
+                  <div class="slide-item-wrapper" style="border-radius: 0; overflow: hidden; border: none; background: transparent; box-shadow: none; width: 100%;">
                     <img src="${imgUrl}" alt="${project.title} - Slide ${idx + 1}" style="width: 100%; height: auto; display: block;" loading="lazy">
                   </div>
                 `).join('')}
@@ -396,14 +399,14 @@
                 <div id="project-archive-container" style="max-height: 0; overflow: hidden; transition: max-height 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease; opacity: 0; margin-top: 3rem;">
                   <div class="project-slides-stack" style="display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; margin: 0 auto;">
                     ${project.archiveImages.map((imgUrl, idx) => `
-                      <div class="slide-item-wrapper" style="border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(18, 18, 18, 0.85); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1); width: 100%;">
+                      <div class="slide-item-wrapper" style="border-radius: 0; overflow: hidden; border: none; background: transparent; box-shadow: none; width: 100%;">
                         <img src="${imgUrl}" alt="${project.title} - Slide ${project.featuredImages.length + idx + 1}" style="width: 100%; height: auto; display: block;" loading="lazy">
                       </div>
                     `).join('')}
                   </div>
                 </div>
                 <div style="text-align: center; margin-top: 4rem;">
-                  <button id="toggle-archive-btn" class="project-action-button" style="cursor: pointer; border-radius: 30px; font-family:'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.15); padding: 1rem 2.25rem; background: rgba(255, 255, 255, 0.05); color: #fff; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+                  <button id="toggle-archive-btn" class="project-action-button" style="cursor: pointer; border-radius: 0; font-family:'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; border: 1px solid #1a1a1a; padding: 0.95rem 2rem; background: #1a1a1a; color: #fff; transition: all 0.3s ease;">
                     Explore Full Guidelines (+${project.archiveImages.length} slides)
                   </button>
                 </div>
@@ -414,9 +417,9 @@
             featuredContentHTML = `
               <div class="project-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
                 ${project.featuredImages.map((imgUrl, idx) => `
-                  <div class="gallery-item-wrapper" style="border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(18, 18, 18, 0.85); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); cursor: pointer; transition: all 0.4s ease;" onmouseover="this.style.borderColor='rgba(0, 216, 255, 0.4)'; this.style.boxShadow='0 15px 35px rgba(0, 216, 255, 0.08)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.12)'; this.style.boxShadow='0 15px 35px rgba(0, 0, 0, 0.5)';">
+                  <div class="gallery-item-wrapper" style="border-radius: 0; overflow: hidden; border: none; background: transparent; box-shadow: none; cursor: pointer; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.9';" onmouseout="this.style.opacity='1.0';">
                     <a href="${imgUrl}" target="_blank" style="display: block;">
-                      <img src="${imgUrl}" alt="${project.title} - Photo ${idx + 1}" style="width: 100%; height: auto; display: block; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='scale(1.025)';" onmouseout="this.style.transform='scale(1.0)';" loading="lazy">
+                      <img src="${imgUrl}" alt="${project.title} - Photo ${idx + 1}" style="width: 100%; height: auto; display: block; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='scale(1.015)';" onmouseout="this.style.transform='scale(1.0)';" loading="lazy">
                     </a>
                   </div>
                 `).join('')}
@@ -429,16 +432,16 @@
                 <div id="project-archive-container" style="max-height: 0; overflow: hidden; transition: max-height 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease; opacity: 0; margin-top: 2.5rem;">
                   <div class="project-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
                     ${project.archiveImages.map((imgUrl, idx) => `
-                      <div class="gallery-item-wrapper" style="border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(18, 18, 18, 0.85); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); cursor: pointer; transition: all 0.4s ease;" onmouseover="this.style.borderColor='rgba(0, 216, 255, 0.4)'; this.style.boxShadow='0 15px 35px rgba(0, 216, 255, 0.08)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.12)'; this.style.boxShadow='0 15px 35px rgba(0, 0, 0, 0.5)';">
+                      <div class="gallery-item-wrapper" style="border-radius: 0; overflow: hidden; border: none; background: transparent; box-shadow: none; cursor: pointer; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.9';" onmouseout="this.style.opacity='1.0';">
                         <a href="${imgUrl}" target="_blank" style="display: block;">
-                          <img src="${imgUrl}" alt="${project.title} - Photo ${project.featuredImages.length + idx + 1}" style="width: 100%; height: auto; display: block; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='scale(1.025)';" onmouseout="this.style.transform='scale(1.0)';" loading="lazy">
+                          <img src="${imgUrl}" alt="${project.title} - Photo ${project.featuredImages.length + idx + 1}" style="width: 100%; height: auto; display: block; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='scale(1.015)';" onmouseout="this.style.transform='scale(1.0)';" loading="lazy">
                         </a>
                       </div>
                     `).join('')}
                   </div>
                 </div>
                 <div style="text-align: center; margin-top: 4rem;">
-                  <button id="toggle-archive-btn" class="project-action-button" style="cursor: pointer; border-radius: 30px; font-family:'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.15); padding: 1rem 2.25rem; background: rgba(255, 255, 255, 0.05); color: #fff; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+                  <button id="toggle-archive-btn" class="project-action-button" style="cursor: pointer; border-radius: 0; font-family:'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; border: 1px solid #1a1a1a; padding: 0.95rem 2rem; background: #1a1a1a; color: #fff; transition: all 0.3s ease;">
                     Explore Campaign Archive (+${project.archiveImages.length} items)
                   </button>
                 </div>

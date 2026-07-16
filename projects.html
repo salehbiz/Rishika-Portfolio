@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="styles.css?v=13" />
   <style>
     body {
-      background: #050505;
-      color: #ffffff;
+      background: #ffffff;
+      color: #1a1a1a;
       margin: 0;
       padding: 0;
     }
@@ -22,18 +22,19 @@
     }
 
     .projects-hero h1 {
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
       font-size: 3.5rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       margin-bottom: 1rem;
-      color: #ffffff;
+      color: #1a1a1a;
     }
 
     .projects-hero p {
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
-      color: #a3a3a3;
+      color: #555555;
       max-width: 600px;
       margin: 0 auto 2.5rem;
       line-height: 1.6;
@@ -49,11 +50,11 @@
     }
 
     .filter-btn {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #a3a3a3;
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      color: #555555;
       padding: 0.6rem 1.5rem;
-      border-radius: 30px;
+      border-radius: 0;
       font-family: 'Inter', sans-serif;
       font-size: 0.85rem;
       font-weight: 600;
@@ -62,10 +63,10 @@
     }
 
     .filter-btn:hover, .filter-btn.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+      background: #1a1a1a;
+      color: #ffffff;
+      border-color: #1a1a1a;
+      box-shadow: none;
     }
 
     /* Details List */
@@ -83,28 +84,28 @@
       flex-direction: row;
       align-items: center;
       gap: 4rem;
-      padding: 3rem;
-      background: rgba(18, 18, 18, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 40px;
+      padding: 0 0 5rem 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 0;
       scroll-margin-top: 120px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      transition: all 0.4s ease;
+      box-shadow: none;
+      transition: opacity 0.3s ease;
     }
 
     .project-detail-item:hover {
-      border-color: rgba(0, 216, 255, 0.5);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 216, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: none;
+      opacity: 0.95;
     }
 
     .project-media-wrapper {
       width: 50%;
-      border-radius: 24px;
+      border-radius: 0;
       overflow: hidden;
-      height: 400px;
-      background: #000000;
+      height: auto;
+      background: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -112,7 +113,7 @@
 
     .project-media-wrapper img, .project-media-wrapper video {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: contain;
       transition: transform 0.5s ease;
       display: block;
@@ -120,7 +121,7 @@
 
     .project-detail-item:hover .project-media-wrapper img,
     .project-detail-item:hover .project-media-wrapper video {
-      transform: scale(1.03);
+      transform: scale(1.015);
     }
 
     .project-info-wrapper {
@@ -131,7 +132,7 @@
     }
 
     .project-tag {
-      color: #00d8ff;
+      color: #4e6151;
       font-family: 'Inter', sans-serif;
       font-size: 0.8rem;
       font-weight: 600;
@@ -141,34 +142,38 @@
     }
 
     .project-info-wrapper h2 {
-      font-family: 'Inter Tight', 'Inter', sans-serif;
+      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
       font-size: 2.25rem;
-      font-weight: 700;
+      font-weight: 500;
       margin: 0 0 1rem;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
     }
 
     .project-desc {
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       line-height: 1.65;
-      color: #a3a3a3;
+      color: #555555;
       margin-bottom: 1.5rem;
     }
 
     .project-meta-box {
-      background: rgba(255, 255, 255, 0.02);
-      border-left: 3px solid #00d8ff;
-      padding: 1rem 1.25rem;
-      border-radius: 0 12px 12px 0;
+      background: transparent;
+      border-left: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 1rem 0;
+      border-radius: 0;
       margin-bottom: 2rem;
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
-      color: #d4d4d4;
+      color: #555555;
+      line-height: 1.6;
     }
 
     .project-meta-box strong {
-      color: #ffffff;
+      color: #1a1a1a;
     }
 
     .project-action-btn {
@@ -178,22 +183,22 @@
       letter-spacing: 0.12em;
       color: #ffffff;
       text-decoration: none;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #1a1a1a;
+      border: 1px solid #1a1a1a;
       padding: 0.85rem 2rem;
-      border-radius: 30px;
+      border-radius: 0;
       text-transform: uppercase;
       align-self: flex-start;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: none;
+      transition: all 0.3s ease;
     }
 
     .project-action-btn:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
+      background: transparent;
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+      box-shadow: none;
+      transform: none;
     }
 
     /* Alternating layout styling */
@@ -204,12 +209,12 @@
     /* Responsive */
     @media (max-width: 1024px) {
       .project-detail-item {
-        gap: 2.5rem;
-        padding: 2.5rem;
-        border-radius: 32px;
+        gap: 2rem;
+        padding: 0 0 4rem 0;
+        border-radius: 0;
       }
       .project-media-wrapper {
-        height: 320px;
+        height: auto;
       }
       .project-info-wrapper h2 {
         font-size: 1.85rem;
@@ -227,13 +232,13 @@
       .project-detail-item {
         flex-direction: column !important;
         align-items: stretch;
-        padding: 1.5rem;
-        border-radius: 20px;
+        padding: 0 0 3rem 0;
+        border-radius: 0;
       }
       .project-media-wrapper {
         width: 100%;
-        height: 200px;
-        border-radius: 12px;
+        height: auto;
+        border-radius: 0;
       }
       .project-info-wrapper {
         width: 100%;
@@ -245,7 +250,7 @@
     }
   </style>
 </head>
-<body>
+<body class="project-list-page">
 
   <!-- Particles Background -->
   <canvas id="particles-canvas"></canvas>
@@ -262,7 +267,7 @@
 
   <!-- Hero Section -->
   <header class="projects-hero">
-    <p style="color: #00d8ff; letter-spacing: 0.2em; font-weight: 600; font-size: 0.75rem; text-transform: uppercase;">Creative Archive</p>
+    <p style="color: #4e6151; letter-spacing: 0.2em; font-weight: 600; font-size: 0.75rem; text-transform: uppercase;">Creative Archive</p>
     <h1>Project Showcase</h1>
     <p>A deep dive into the design strategy, packaging concepts, brand identities, and retail campaign systems created for various brands.</p>
     
@@ -360,7 +365,7 @@
               </div>
               <div class="project-info-wrapper">
                 <span class="project-tag">${project.categoryLabel}</span>
-                <h2><a href="project.html?id=${project.id}" style="color:inherit; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='#00d8ff'" onmouseout="this.style.color='inherit'">${project.title}</a></h2>
+                <h2><a href="project.html?id=${project.id}" style="color:inherit; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='#4e6151'" onmouseout="this.style.color='inherit'">${project.title}</a></h2>
                 <div class="project-meta-box">
                   <strong>Client / Brand:</strong> ${project.client}<br>
                   <strong>Scope:</strong> ${project.scope}

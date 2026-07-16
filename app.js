@@ -395,6 +395,7 @@
   }
 
   // ===================== STACKED CARDS ANIMATION =====================
+  /*
   function initStackedCards() {
     const cards = document.querySelectorAll('.service-card');
     if (cards.length === 0) return;
@@ -433,4 +434,5 @@
   }
 
   initStackedCards();
+  */
 })();
