@@ -27,14 +27,14 @@
   <style>
     /* Clean 3-Column Square Grid Layout (Flexbox centered) */
     .services-cards-container {
-      max-width: 1650px !important;
+      max-width: 100% !important;
       margin: 0 auto !important;
-      padding: 2rem 2rem 1rem !important;
+      padding: 2rem 1.5rem 1rem !important;
       display: flex !important;
       flex-wrap: wrap !important;
       justify-content: center !important;
-      gap: 1.5rem !important;
-      row-gap: 2rem !important;
+      gap: 1rem !important;
+      row-gap: 1.5rem !important;
       background: transparent !important;
     }
 
@@ -49,7 +49,7 @@
       transition: opacity 0.3s ease !important;
       position: relative !important;
       top: auto !important;
-      width: calc((100% - 3rem) / 3) !important;
+      width: calc((100% - 2rem) / 3) !important;
     }
 
     .service-card:hover {
@@ -159,12 +159,12 @@
      /* Responsive */
     @media (max-width: 1024px) {
       .services-cards-container {
-        gap: 1.25rem !important;
-        row-gap: 2rem !important;
+        gap: 1rem !important;
+        row-gap: 1.5rem !important;
         padding: 2rem 1.5rem 5rem !important;
       }
       .service-card {
-        width: calc((100% - 1.25rem) / 2) !important;
+        width: calc((100% - 1rem) / 2) !important;
       }
     }
 
