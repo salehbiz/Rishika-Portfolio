@@ -359,9 +359,84 @@
         const prevProject = projectsData[(projectIndex - 1 + projectsData.length) % projectsData.length];
         const nextProject = projectsData[(projectIndex + 1) % projectsData.length];
 
+        // Helper to build a CSS phone frame mockup containing an Instagram grid
+        function buildPhoneGridHTML(images, id) {
+          const handle = id === 'apple' ? 'indiaistore' : (id === 'storia' ? 'storiafoods' : 'canadiansimglobal');
+          const avatarLetter = id === 'apple' ? 'AP' : (id === 'storia' ? 'ST' : 'CS');
+          const label = id === 'apple' ? 'India iStore' : (id === 'storia' ? 'Storia Foods' : 'CanadianSIM');
+          
+          return `
+            <div class="phone-frame-mockup" style="width: 320px; height: 580px; border: 12px solid #1a1a1a; border-radius: 36px; background: #fafafa; box-shadow: 0 20px 40px rgba(0,0,0,0.06); overflow: hidden; display: flex; flex-direction: column; position: relative; margin: 0 auto;">
+              <!-- Speaker & Camera notch -->
+              <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 140px; height: 20px; background: #1a1a1a; border-bottom-left-radius: 14px; z-index: 100; display: flex; align-items: center; justify-content: center;">
+                <span style="width: 40px; height: 3px; background: #333333; border-radius: 1.5px;"></span>
+              </div>
+              
+              <!-- Instagram/Phone screen header -->
+              <div style="height: 48px; border-bottom: 1px solid #eaeaea; display: flex; align-items: center; justify-content: center; padding-top: 14px; font-weight: 700; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #1a1a1a; background: #ffffff; user-select: none;">
+                ${handle}
+              </div>
+              
+              <!-- Grid Container (Scrollable) -->
+              <div style="flex: 1; overflow-y: auto; background: #ffffff; padding: 2px;" class="phone-grid-scroll">
+                <!-- User Profile Header -->
+                <div style="padding: 10px 8px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #f3f3f3; font-family: 'Inter', sans-serif;">
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: #eaeaea; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="font-size: 0.75rem; font-weight: 700; color: #555555;">${avatarLetter}</span>
+                  </div>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.75rem; color: #1a1a1a;">${handle}</div>
+                    <div style="font-size: 0.65rem; color: #777777;">${label}</div>
+                  </div>
+                </div>
+                
+                <!-- Instagram Grid posts -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 2px;">
+                  ${images.map((imgUrl, index) => `
+                    <div style="aspect-ratio: 1; overflow: hidden; background: #f0f0f0;">
+                      <a href="${imgUrl}" target="_blank" style="display: block; width: 100%; height: 100%;">
+                        <img src="${imgUrl}" alt="Post ${index + 1}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                      </a>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
         // Build media element based on type
         let mediaHTML = '';
-        if (project.fileType === 'video') {
+        if (project.layout === 'web-layout') {
+          // Render browser mockup shell around image or fallback placeholder
+          if (!project.image) {
+            mediaHTML = `
+              <div class="browser-mockup no-image-placeholder" style="aspect-ratio: 1.6; border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; background: #f7f7f7; box-shadow: 0 10px 30px rgba(0,0,0,0.04); width: 100%; display: flex; flex-direction: column;">
+                <div class="browser-header" style="height: 28px; background: #f1f5f9; display: flex; align-items: center; padding: 0 10px; gap: 5px; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #eab308; display: inline-block;"></span>
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+                </div>
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                  <div class="no-image-text" style="font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; font-weight: 700; color: #999999; text-transform: uppercase; letter-spacing: 0.1em;">No Image Found</div>
+                </div>
+              </div>
+            `;
+          } else {
+            mediaHTML = `
+              <div class="browser-mockup" style="border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.04); width: 100%;">
+                <div class="browser-header" style="height: 28px; background: #f1f5f9; display: flex; align-items: center; padding: 0 10px; gap: 5px; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #eab308; display: inline-block;"></span>
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+                </div>
+                <img src="${project.image}" alt="${project.title}" style="width: 100%; height: auto; display: block;">
+              </div>
+            `;
+          }
+        } else if (project.layout === 'phone-grid') {
+          mediaHTML = buildPhoneGridHTML(project.featuredImages || project.imagesList, project.id);
+        } else if (project.fileType === 'video') {
           mediaHTML = `
             <video controls autoplay muted playsinline loop>
               <source src="${project.fileLink}" type="video/mp4">
@@ -372,11 +447,174 @@
           mediaHTML = `<img src="${project.image}" alt="${project.title}">`;
         }
 
-        // Build gallery block if featuredImages exists
+        // Build gallery block based on custom layout rules
         let galleryHTML = '';
-        if (project.featuredImages && project.featuredImages.length > 0) {
-          // Check if project contains presentation slides (dailyhunt, houm, wagh-bakri, sebamed, storia, scribble, kalam-kari, icef)
-          const isPresentation = ['dailyhunt', 'houm', 'wagh-bakri', 'sebamed', 'storia', 'scribble', 'kalam-kari', 'icef'].includes(project.id);
+        
+        if (project.fileType === 'pdf' || project.pdfLink) {
+          // Render slide deck stack
+          let featuredContentHTML = '';
+          if (project.featuredImages && project.featuredImages.length > 0) {
+            featuredContentHTML = `
+              <div class="project-slides-stack" style="display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                ${project.featuredImages.map((imgUrl, idx) => `
+                  <div class="slide-item-wrapper" style="border-radius: 0; overflow: hidden; border: none; background: transparent; box-shadow: none; width: 100%;">
+                    <img src="${imgUrl}" alt="${project.title} - Slide ${idx + 1}" style="width: 100%; height: auto; display: block;" loading="lazy">
+                  </div>
+                `).join('')}
+              </div>
+            `;
+          }
+          
+          let archiveContentHTML = '';
+          if (project.archiveImages && project.archiveImages.length > 0) {
+            archiveContentHTML = `
+              <div id="project-archive-container" style="max-height: 0; overflow: hidden; transition: max-height 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease; opacity: 0; margin-top: 3rem;">
+                <div class="project-slides-stack" style="display: flex; flex-direction: column; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                  ${project.archiveImages.map((imgUrl, idx) => `
+                    <div class="slide-item-wrapper" style="border-radius: 0; overflow: hidden; border: none; background: transparent; box-shadow: none; width: 100%;">
+                      <img src="${imgUrl}" alt="${project.title} - Slide ${project.featuredImages.length + idx + 1}" style="width: 100%; height: auto; display: block;" loading="lazy">
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div style="text-align: center; margin-top: 4rem;">
+                <button id="toggle-archive-btn" class="project-action-button" style="cursor: pointer; border-radius: 0; font-family:'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; border: 1px solid #1a1a1a; padding: 0.95rem 2rem; background: #1a1a1a; color: #fff; transition: all 0.3s ease;">
+                  Explore Full Guidelines (+${project.archiveImages.length} slides)
+                </button>
+              </div>
+            `;
+          }
+          
+          const pdfUrl = project.pdfLink || project.fileLink;
+          const pdfLabel = project.pdfLink ? 'Open Brand Book PDF in New Tab' : 'Open PDF Presentation in New Tab';
+          
+          galleryHTML = `
+            <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
+              <h2 style="font-family:'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-transform: uppercase;">Featured Slides & Guidelines</h2>
+              ${featuredContentHTML}
+              ${archiveContentHTML}
+              <div style="text-align: center; margin-top: 4rem;">
+                <a href="${pdfUrl}" target="_blank" class="project-action-button" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 0; font-family:'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; border: 1px solid #1a1a1a; padding: 0.95rem 2rem; background: transparent; color: #1a1a1a; transition: all 0.3s ease;">
+                  <svg style="width:16px; height:16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  ${pdfLabel}
+                </a>
+              </div>
+            </div>
+          `;
+        } else if (project.layout === 'phone-grid-expanded') {
+          // Storia layout: mango shake hero image at the top, and phone mockup in gallery
+          galleryHTML = `
+            <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem; display: flex; flex-direction: column; align-items: center;">
+              <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Instagram Campaign Feed</h2>
+              ${buildPhoneGridHTML(project.imagesList, project.id)}
+            </div>
+          `;
+        } else if (project.layout === 'infographic-tiles') {
+          // Sebamed: 4 expansion tiles print, facebook, instagram, retail
+          const tiles = [
+            {
+              title: 'PRINT',
+              desc: 'Three key executions, each pairing a headline with real mother and baby photography: "Warm up to give your little one..."',
+              image: 'portfolio/sebamed/sebamed_slide_2.png',
+              color: '#f8fafc'
+            },
+            {
+              title: 'FACEBOOK',
+              desc: 'A story series featuring grandmothers sharing how they used to warm up for winter, under #WinterDiaries.',
+              image: 'portfolio/sebamed/sebamed_slide_13.png',
+              color: '#eff6ff'
+            },
+            {
+              title: 'INSTAGRAM',
+              desc: 'An "Ask me a question" sticker inviting mothers to put winter skincare questions to Sebamed\'s dermatologists, under #WarmingUpForWinter.',
+              image: 'portfolio/sebamed/sebamed_slide_14.png',
+              color: '#fff7ed'
+            },
+            {
+              title: 'RETAIL',
+              desc: 'An in-store installation, the winter range displayed inside a rotating snow globe, with the line "warm up for winter" at its base.',
+              image: 'portfolio/sebamed/sebamed_slide_22.png',
+              color: '#f0fdf4'
+            }
+          ];
+          
+          galleryHTML = `
+            <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
+              <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Campaign Expansion</h2>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin: 0 auto; max-width: 1100px;">
+                ${tiles.map(tile => `
+                  <div style="background: ${tile.color}; border: 1px solid rgba(0,0,0,0.06); padding: 1.5rem; border-radius: 8px; display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="font-family:'Inter', sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; color:#777777;">${tile.title}</div>
+                    <div style="border-radius: 4px; overflow: hidden; background: #ffffff; border: 1px solid rgba(0,0,0,0.04); aspect-ratio: 1.2; display: flex; align-items: center; justify-content: center;">
+                      <img src="${tile.image}" alt="${tile.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <p style="font-family:'Inter', sans-serif; font-size:0.85rem; line-height:1.6; color:#555555; margin:0;">${tile.desc}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else if (project.layout === 'vertical-sections') {
+          // Rogers, Fido, Chatr: vertical stacks with descriptions below image
+          galleryHTML = `
+            <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
+              <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; margin-bottom: 4rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Case Study Breakdown</h2>
+              <div style="display: flex; flex-direction: column; gap: 5rem; max-width: 1000px; margin: 0 auto;">
+                ${project.sections.map((sec, idx) => `
+                  <div style="border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 4rem;">
+                    <h3 style="font-family:'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing:0.1em; color:#1a1a1a; text-transform: uppercase; margin-bottom: 1rem;">${sec.title}</h3>
+                    <p style="font-family:'Inter', sans-serif; font-size:0.95rem; line-height:1.7; color:#555555; margin-bottom:2rem; max-width: 800px;">${sec.description}</p>
+                    <div style="border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.06); background:#fafafa; width: 100%;">
+                      ${sec.fileType === 'video' ? `
+                        <video controls autoplay muted playsinline loop style="width: 100%; display: block;">
+                          <source src="${sec.video}" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      ` : `
+                        <img src="${sec.image}" alt="${sec.title}" style="width: 100%; height: auto; display: block;">
+                      `}
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else if (project.layout === 'web-layout') {
+          // CanadianSIM: Renders performance table below
+          galleryHTML = `
+            <div class="project-gallery-section" style="margin-top: 4rem; margin-bottom: 6rem;">
+              <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 2.5rem; box-shadow: 0 4px 30px rgba(0,0,0,0.02); margin-top: 3rem;">
+                  <h3 style="font-family:'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 500; color: #1a1a1a; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Performance Results</h3>
+                  <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: 'Inter', sans-serif; font-size: 0.95rem;">
+                      <thead>
+                        <tr style="border-bottom: 2px solid #1a1a1a; font-weight: 700; color: #1a1a1a;">
+                          <th style="padding: 12px 10px;">Metric</th>
+                          <th style="padding: 12px 10px;">Before</th>
+                          <th style="padding: 12px 10px;">After</th>
+                          <th style="padding: 12px 10px; color: #3b651d;">Change</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${project.performanceTable.map((row, idx) => `
+                          <tr style="border-bottom: 1px solid rgba(0,0,0,0.06); background: ${idx % 2 === 0 ? 'transparent' : 'rgba(0,0,0,0.01)'}">
+                            <td style="padding: 14px 10px; font-weight: 600; color: #1a1a1a;">${row.metric}</td>
+                            <td style="padding: 14px 10px; color: #555555;">${row.before}</td>
+                            <td style="padding: 14px 10px; color: #555555;">${row.after}</td>
+                            <td style="padding: 14px 10px; font-weight: 700; color: #22c55e;">${row.change}</td>
+                          </tr>
+                        `).join('')}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (project.featuredImages && project.featuredImages.length > 0) {
+          // Standard layout for presentation decks (dailyhunt, scribble, kalam-kari, etc.) or standard grid
+          const isPresentation = ['taj'].includes(project.id);
           
           let featuredContentHTML = '';
           let archiveContentHTML = '';
@@ -453,7 +691,7 @@
           
           galleryHTML = `
             <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
-              <h2 style="font-family:'Inter Tight', 'Inter', sans-serif; font-size: 2.25rem; font-weight:700; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #ffffff;">${sectionTitle}</h2>
+              <h2 style="font-family:'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-transform: uppercase;">${sectionTitle}</h2>
               ${featuredContentHTML}
               ${archiveContentHTML}
             </div>

@@ -277,7 +277,7 @@
   }
 
   // ===================== INITIALIZE =====================
-  initCustomCursor();
+  // initCustomCursor();
 
   // ===================== TEXT REVEAL ANIMATION =====================
   function initTextReveal() {

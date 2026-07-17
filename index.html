@@ -23,6 +23,173 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css?v=13" />
+  
+  <style>
+    /* Cipher.tv Asymmetrical Layout Overrides for Selected Portfolio (Clean Grid) */
+    .services-cards-container {
+      max-width: 1400px !important;
+      margin: 0 auto !important;
+      padding: 2rem 4rem 6rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 5rem !important; /* Clean, reduced vertical gaps */
+      background: transparent !important;
+    }
+
+    .service-card {
+      display: flex !important;
+      flex-direction: column !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      transition: opacity 0.3s ease !important;
+      position: relative !important;
+      top: auto !important;
+    }
+
+    .service-card:hover {
+      opacity: 0.95 !important;
+    }
+
+    .service-card-image-wrapper {
+      width: 100% !important;
+      border-radius: 0 !important;
+      overflow: hidden !important;
+      position: relative !important;
+      background: transparent !important;
+      border: 1px solid rgba(0, 0, 0, 0.04) !important;
+      aspect-ratio: auto !important; /* Force natural display proportions */
+    }
+
+    .service-card-image-wrapper::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: rgba(0, 0, 0, 0.2) !important; /* Premium semi-transparent dark overlay */
+      opacity: 0 !important;
+      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+      pointer-events: none !important;
+      z-index: 2 !important;
+    }
+
+    .service-card:hover .service-card-image-wrapper::after {
+      opacity: 1 !important;
+    }
+
+    .service-card-image-wrapper.no-image-placeholder {
+      aspect-ratio: 1.55 !important;
+      background: #f7f7f7 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border: 1px solid #e0e0e0 !important;
+    }
+
+    .no-image-text {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+      color: #999999 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    .service-card-image-wrapper img,
+    .service-card-image-wrapper video {
+      width: 100% !important;
+      height: auto !important; /* Scale height proportionally */
+      object-fit: contain !important; /* Do not scale/crop image edges */
+      display: block !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    /* Metadata row below image */
+    .service-card-content {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
+      margin-top: 1.25rem !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: #1a1a1a !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+
+    .project-serial {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-weight: 700 !important;
+      font-size: 0.75rem !important;
+      color: #777777 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+
+    .project-serial .serial-dot {
+      display: none !important; /* Hide dot */
+    }
+
+    .project-title-minimal {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 800 !important;
+      color: #1a1a1a !important;
+      font-size: 0.8rem !important;
+      text-transform: uppercase !important;
+      margin: 0 !important;
+      letter-spacing: 0.08em !important;
+    }
+
+    /* Asymmetric Column Width Classes */
+    .width-28 { width: 28% !important; }
+    .width-30 { width: 30% !important; }
+    .width-32 { width: 32% !important; }
+    .width-35 { width: 35% !important; }
+    .width-40 { width: 40% !important; }
+    .width-42 { width: 42% !important; }
+    .width-45 { width: 45% !important; }
+    .width-48 { width: 48% !important; }
+    .width-50 { width: 50% !important; }
+
+    /* Alignments */
+    .align-left { align-self: flex-start !important; }
+    .align-right { align-self: flex-end !important; }
+    .align-center { align-self: center !important; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .services-cards-container {
+        gap: 4rem !important;
+        padding: 0 2.5rem 6rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-cards-container {
+        gap: 3.5rem !important;
+        padding: 0 1.5rem 4rem !important;
+      }
+      .service-card {
+        width: 100% !important;
+        align-self: stretch !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+      .service-card-image-wrapper {
+        aspect-ratio: auto !important; /* fallback to natural ratio on mobile */
+      }
+      .service-card-content {
+        margin-top: 1rem !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -84,17 +251,207 @@
     <div style="height:20vh;"></div>
 
   </div>
-  <!-- Statement Section -->
-  <section class="statement-section">
-    <div class="statement-container">
-      <p class="statement-text">
-        Good design isn't just aesthetic — it's commercial ownership. I bridge the gap between high-level brand storytelling and real, measurable growth.
-      </p>
+
+  <!-- What We Do - Services (Sticky Stacked Cards) -->
+  <section id="what-we-do" class="services-section">
+    <div class="services-header">
+      <h2 class="services-title">Selected Portfolio & Projects</h2>
+      <a href="projects.html" class="services-link">VIEW ALL PROJECTS</a>
+    </div>
+
+    <!-- Sticky stacked cards deck wrapper -->
+    <div class="services-cards-container">
+      <!-- Card 1: CanadianSIM Website Redesign -->
+      <a href="project.html?id=canadiansim" class="service-card align-right width-35">
+        <div class="service-card-image-wrapper no-image-placeholder">
+          <div class="no-image-text">No Image Found</div>
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>001</span>
+          <h3 class="project-title-minimal">CanadianSIM Web Redesign</h3>
+        </div>
+      </a>
+
+      <!-- Card 2: Rogers, Fido, Chatr -->
+      <a href="project.html?id=rogers-fido-chatr" class="service-card align-left width-48">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/rogers-fido-chatr/Image (1).jpg" alt="Rogers, Fido, Chatr" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>002</span>
+          <h3 class="project-title-minimal">Rogers, Fido, Chatr</h3>
+        </div>
+      </a>
+
+      <!-- Card 3: CanadianSIM Social Media -->
+      <a href="project.html?id=canadiansim-social" class="service-card align-right width-40">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/canadiansim-social/homepage_thumb.png" alt="CanadianSIM Social Media" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>003</span>
+          <h3 class="project-title-minimal">CanadianSIM Instagram Run</h3>
+        </div>
+      </a>
+
+      <!-- Card 4: Airtel Black Launch -->
+      <a href="project.html?id=airtel-black" class="service-card align-left width-32">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/airtel-black/Untitled-3-01.jpg" alt="Airtel Black Launch" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>004</span>
+          <h3 class="project-title-minimal">Airtel Black Launch</h3>
+        </div>
+      </a>
+
+      <!-- Card 5: Dailyhunt Brand Identity -->
+      <a href="project.html?id=dailyhunt" class="service-card align-right width-35">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/dailyhunt/slide_1.png" alt="Dailyhunt Identity" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>005</span>
+          <h3 class="project-title-minimal">Dailyhunt Identity</h3>
+        </div>
+      </a>
+
+      <!-- Card 6: Houm Brand Book -->
+      <a href="project.html?id=houm" class="service-card align-left width-40">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/houm/slide_1.png" alt="Houm Brand Book" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>006</span>
+          <h3 class="project-title-minimal">Houm Brand Book</h3>
+        </div>
+      </a>
+
+      <!-- Card 7: Wagh Bakri Tea Packaging -->
+      <a href="project.html?id=wagh-bakri" class="service-card align-right width-30">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/wagh-bakri/slide_1.png" alt="Wagh Bakri Tea Packaging" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>007</span>
+          <h3 class="project-title-minimal">Wagh Bakri Tea Packaging</h3>
+        </div>
+      </a>
+
+      <!-- Card 8: Sebamed Skin Care -->
+      <a href="project.html?id=sebamed" class="service-card align-left width-45">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/sebamed/slide_1.png" alt="Sebamed Skin Care" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>008</span>
+          <h3 class="project-title-minimal">Sebamed Skin Care</h3>
+        </div>
+      </a>
+
+      <!-- Card 9: Storia Mango Shake -->
+      <a href="project.html?id=storia" class="service-card align-right width-35">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/storia/slide_1.png" alt="Storia Mango Shake" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>009</span>
+          <h3 class="project-title-minimal">Storia Mango Shake</h3>
+        </div>
+      </a>
+
+      <!-- Card 10: Scribble Construction -->
+      <a href="project.html?id=scribble" class="service-card align-left width-32">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/scribble/slide_1.png" alt="Scribble Construction" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>010</span>
+          <h3 class="project-title-minimal">Scribble Construction</h3>
+        </div>
+      </a>
+
+      <!-- Card 11: Malabar Product Launch Ads -->
+      <a href="project.html?id=malabar" class="service-card align-right width-35">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/malabar/16x20cms-Ads-02.jpg" alt="Malabar Gold & Diamonds" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>011</span>
+          <h3 class="project-title-minimal">Malabar Gold & Diamonds</h3>
+        </div>
+      </a>
+
+      <!-- Card 12: Kalam Kari Fashion -->
+      <a href="project.html?id=kalam-kari" class="service-card align-left width-40">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/kalam-kari/slide_1.png" alt="Kalam Kari Fashion" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>012</span>
+          <h3 class="project-title-minimal">Kalam Kari Fashion</h3>
+        </div>
+      </a>
+
+      <!-- Card 13: Radio City Ads -->
+      <a href="project.html?id=radio-city" class="service-card align-right width-30">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/radio-city/Radio City_01.jpg" alt="Radio City Ads" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>013</span>
+          <h3 class="project-title-minimal">Radio City Ads</h3>
+        </div>
+      </a>
+
+      <!-- Card 14: Ankahee Ansunee -->
+      <a href="project.html?id=ankahee" class="service-card align-left width-48">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/assets/ankahee_layout.jpg" alt="Ankahee Ansunee" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>014</span>
+          <h3 class="project-title-minimal">Ankahee Ansunee</h3>
+        </div>
+      </a>
+
+      <!-- Card 15: Life Sand Animation -->
+      <a href="project.html?id=life-sand" class="service-card align-right width-45">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/life-sand/life-sand_thumb.png" alt="Life Sand Animation" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>015</span>
+          <h3 class="project-title-minimal">Life Sand Animation</h3>
+        </div>
+      </a>
+
+      <!-- Card 16: Apple Mother's Day Campaign -->
+      <a href="project.html?id=apple" class="service-card align-left width-32">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/apple/Mother_s Day-06.jpg" alt="Apple Watch Mother's Day Campaign" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>016</span>
+          <h3 class="project-title-minimal">India iStore (Apple Reseller)</h3>
+        </div>
+      </a>
+
+      <!-- Card 17: The Taj Mahal Hotel Print Ad -->
+      <a href="project.html?id=taj" class="service-card align-right width-48">
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/taj/taj-1-01.jpg" alt="The Taj Mahal Hotel Print Ad" loading="lazy">
+        </div>
+        <div class="service-card-content">
+          <span class="project-serial"><span class="serial-dot"></span>017</span>
+          <h3 class="project-title-minimal">The Taj Mahal Hotel Ad</h3>
+        </div>
+      </a>
     </div>
   </section>
 
   <!-- Logo Loop Section -->
-  <section class="partners-section">
+  <section class="partners-section" style="margin-top: 6rem; margin-bottom: 6rem;">
     <div class="partners-title">Brands I've Worked With</div>
     <div id="partners-loop" class="logoloop logoloop--horizontal logoloop--fade">
       <div class="logoloop__track">
@@ -219,7 +576,7 @@
             </a>
           </li>
           <li class="logoloop__item">
-            <a href="project.html?id=airport-retail" class="logoloop__link">
+            <a href="project.html?id=rogers-fido-chatr" class="logoloop__link">
               <svg class="tech-icon" viewBox="131 11 76 76" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; color: #ee2722; margin-right: 12px;">
                 <path d="M 191.49326,46.205106 c 2.40819,-3.14821 4.28076,-8.34891 4.28076,-13.70088 0,-10.90429 -10.20513,-21.07264 -27.11557,-21.07264 -10.38095,0 -18.62356,4.17446 -24.19632,8.93359 2.73118,-0.89132 6.61126,-1.7949 11.46443,-1.7949 12.9772,0 28.19496,10.23785 35.5667,27.63483 m -45.57559,5.15982 c -2.40818,3.14413 -4.28076,8.34891 -4.28076,13.69679 0,10.9043 10.20514,21.07263 27.11558,21.07263 10.38094,0 18.62356,-4.17446 24.19223,-8.92949 -2.7271,0.89132 -6.60718,1.7908 -11.46034,1.7908 -12.97721,0 -28.19497,-10.23376 -35.56671,-27.63073 m 20.20585,-25.36567 c -3.14413,-2.41226 -8.34892,-4.28485 -13.6968,-4.28485 -10.9002,0 -21.07263,10.20515 -21.07263,27.11967 0,10.38095 4.17446,18.61947 8.9295,24.18814 -0.89132,-2.723 -1.79081,-6.60717 -1.79081,-11.46034 0,-12.97312 10.23376,-28.19087 27.63074,-35.56262 m 32.79464,10.0048 c 0,12.97721 -10.23376,28.19497 -27.63483,35.5667 3.14413,2.4082 8.353,4.28485 13.70089,4.28485 10.90429,0 21.07263,-10.20513 21.07263,-27.11557 0,-10.38503 -4.17855,-18.62764 -8.9295,-24.19631 0.88723,2.723 1.79081,6.60717 1.79081,11.46033"/>
               </svg>
@@ -227,7 +584,7 @@
             </a>
           </li>
           <li class="logoloop__item">
-            <a href="project.html?id=airport-retail" class="logoloop__link">
+            <a href="project.html?id=rogers-fido-chatr" class="logoloop__link">
               <svg class="tech-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; margin-right: 12px;">
                 <!-- Yellow Fill (Doorway excluded) -->
                 <path d="M 19,53 L 49,15 L 78,51 L 79,90 L 61,90 C 61,64 32,64 32,90 L 19,90 Z" fill="#ffe600" />
@@ -244,7 +601,7 @@
             </a>
           </li>
           <li class="logoloop__item">
-            <a href="project.html?id=airport-retail" class="logoloop__link">
+            <a href="project.html?id=rogers-fido-chatr" class="logoloop__link">
               <svg class="tech-icon" viewBox="95 12 55 55" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; color: #ff8200; margin-right: 12px;">
                 <path d="M122.501078,12 C137.536051,12 149.753471,24.0673071 149.996316,39.0436723 L150,39.4983825 L150,66.9902951 L141.946144,58.9427507 C136.969768,63.9203019 130.095577,67 122.501078,67 C107.312081,67 95,54.6876777 95,39.4983825 C95,24.3123223 107.312081,12 122.501078,12 Z M122.501078,22.1481227 C112.920343,22.1481227 105.149002,29.9174591 105.149002,39.4994608 C105.149002,49.0825409 112.920343,56.8518773 122.501078,56.8518773 C127.147852,56.8518773 131.365728,55.0257303 134.480218,52.0518696 L134.768949,51.7697285 L139.853155,56.8518773 L139.853155,39.5005392 L139.850998,39.5037741 C139.850998,29.9174591 132.083971,22.1481227 122.501078,22.1481227 Z" />
               </svg>
@@ -268,193 +625,6 @@
           </li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- What We Do - Services (Sticky Stacked Cards) -->
-  <section id="what-we-do" class="services-section">
-    <div class="services-header">
-      <h2 class="services-title">Selected Portfolio & Projects</h2>
-      <a href="projects.html" class="services-link">VIEW ALL PROJECTS</a>
-    </div>
-
-    <!-- Sticky stacked cards deck wrapper -->
-    <div class="services-cards-container">
-      <!-- Card 1: Rogers Airport Retail -->
-      <a href="project.html?id=airport-retail" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/airport-retail/both_brands_clean.png" alt="Airport Retail Campaigns" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>001</span>
-          <h3 class="project-title-minimal">Airport Retail Campaigns</h3>
-        </div>
-      </a>
-
-      <!-- Card 2: Rogers OOH & Experiential -->
-      <a href="project.html?id=ooh-experiential" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/ooh-experiential/iphone_17_clean.png" alt="OOH & Experiential Displays" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>002</span>
-          <h3 class="project-title-minimal">OOH & Experiential Displays</h3>
-        </div>
-      </a>
-
-      <!-- Card 3: Airtel Black Launch -->
-      <a href="project.html?id=airtel-black" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/assets/airtel_black_launch.jpg" alt="Airtel Black Launch" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>003</span>
-          <h3 class="project-title-minimal">Airtel Black Launch</h3>
-        </div>
-      </a>
-
-      <!-- Card 4: Dailyhunt Brand Identity -->
-      <a href="project.html?id=dailyhunt" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/dailyhunt_thumb.png" alt="Dailyhunt Identity" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>004</span>
-          <h3 class="project-title-minimal">Dailyhunt Identity</h3>
-        </div>
-      </a>
-
-      <!-- Card 5: Houm Brand Book -->
-      <a href="project.html?id=houm" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/houm_thumb.png" alt="Houm Brand Book" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>005</span>
-          <h3 class="project-title-minimal">Houm Brand Book</h3>
-        </div>
-      </a>
-
-      <!-- Card 6: Wagh Bakri Tea Packaging -->
-      <a href="project.html?id=wagh-bakri" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/wagh_bakri_thumb.png" alt="Wagh Bakri Tea Packaging" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>006</span>
-          <h3 class="project-title-minimal">Wagh Bakri Tea Packaging</h3>
-        </div>
-      </a>
-
-      <!-- Card 7: Sebamed Skin Care -->
-      <a href="project.html?id=sebamed" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/sebamed_thumb.png" alt="Sebamed Skin Care" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>007</span>
-          <h3 class="project-title-minimal">Sebamed Skin Care</h3>
-        </div>
-      </a>
-
-      <!-- Card 8: Storia Mango Shake -->
-      <a href="project.html?id=storia" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/storia_thumb.png" alt="Storia Mango Shake" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>008</span>
-          <h3 class="project-title-minimal">Storia Mango Shake</h3>
-        </div>
-      </a>
-
-      <!-- Card 9: Scribble Construction -->
-      <a href="project.html?id=scribble" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/scribble_thumb.png" alt="Scribble Construction" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>009</span>
-          <h3 class="project-title-minimal">Scribble Construction</h3>
-        </div>
-      </a>
-
-      <!-- Card 10: Malabar Gold & Diamonds -->
-      <a href="project.html?id=malabar" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/assets/malabar_launch.jpg" alt="Malabar Gold & Diamonds" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>010</span>
-          <h3 class="project-title-minimal">Malabar Gold & Diamonds</h3>
-        </div>
-      </a>
-
-      <!-- Card 11: Kalam Kari Fashion -->
-      <a href="project.html?id=kalam-kari" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/kalam_kari_thumb.png" alt="Kalam Kari Fashion" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>011</span>
-          <h3 class="project-title-minimal">Kalam Kari Fashion</h3>
-        </div>
-      </a>
-
-      <!-- Card 12: ICEF Banner Print -->
-      <a href="project.html?id=icef" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/icef_thumb.png" alt="ICEF Banner Print" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>012</span>
-          <h3 class="project-title-minimal">ICEF Banner Print</h3>
-        </div>
-      </a>
-
-      <!-- Card 13: Radio City Ads -->
-      <a href="project.html?id=radio-city" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/assets/radio_city.jpg" alt="Radio City Ads" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>013</span>
-          <h3 class="project-title-minimal">Radio City Ads</h3>
-        </div>
-      </a>
-
-      <!-- Card 14: Ankahee Ansunee -->
-      <a href="project.html?id=ankahee" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/assets/ankahee_layout.jpg" alt="Ankahee Ansunee" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>014</span>
-          <h3 class="project-title-minimal">Ankahee Ansunee</h3>
-        </div>
-      </a>
-
-      <!-- Card 15: Life Sand Animation -->
-      <a href="project.html?id=life-sand" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/life-sand/life-sand_thumb.png" alt="Life Sand Animation" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>015</span>
-          <h3 class="project-title-minimal">Life Sand Animation</h3>
-        </div>
-      </a>
-
-      <!-- Card 16: AI & Motion Video -->
-      <a href="project.html?id=ai-video" class="service-card">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/assets/img_4637.jpg" alt="AI & Motion Video" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>016</span>
-          <h3 class="project-title-minimal">AI & Motion Video</h3>
-        </div>
-      </a>
     </div>
   </section>
 
@@ -810,11 +980,11 @@
 
   function getScrollBounds() {
     const vh = window.innerHeight;
-    const statementSection = document.querySelector('.statement-section');
-    if (!statementSection) return { start: 0, end: vh };
-    const rect = statementSection.getBoundingClientRect();
-    const statementSectionTop = rect.top + window.scrollY;
-    return { start: 0, end: statementSectionTop - vh * 0.2 };
+    const triggerSection = document.querySelector('.services-section') || document.querySelector('#what-we-do');
+    if (!triggerSection) return { start: 0, end: vh };
+    const rect = triggerSection.getBoundingClientRect();
+    const triggerSectionTop = rect.top + window.scrollY;
+    return { start: 0, end: triggerSectionTop - vh * 0.2 };
   }
 
   function getProgress() {
@@ -929,7 +1099,7 @@
   animateParticles();
 
   // ===================== HERO FADE & HIDE PAST HERO ANIMATION =====================
-  const statementSection = document.querySelector('.statement-section');
+  const triggerSection = document.querySelector('.services-section') || document.querySelector('#what-we-do');
   const videoContainer = document.getElementById('scroll-video-container');
   const particlesCanvas = document.getElementById('particles-canvas');
 
@@ -938,9 +1108,9 @@
     const fade = Math.max(0, 1 - scrollY / (window.innerHeight * 0.3));
     document.getElementById('hero').style.opacity = fade;
 
-    if (statementSection && videoContainer && particlesCanvas) {
-      const rect = statementSection.getBoundingClientRect();
-      // If the top of statementSection reaches the top of viewport, hide video & particles
+    if (triggerSection && videoContainer && particlesCanvas) {
+      const rect = triggerSection.getBoundingClientRect();
+      // If the top of Selected Portfolio reaches the top of viewport, hide video & particles
       if (rect.top <= 0) {
         videoContainer.style.opacity = '0';
         videoContainer.style.visibility = 'hidden';
@@ -955,7 +1125,6 @@
     }
   }
   window.addEventListener('scroll', updateHeroOpacity, { passive: true });
-
 
 })();
 </script>

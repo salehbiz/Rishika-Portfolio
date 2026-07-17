@@ -68,156 +68,143 @@
       border-color: #1a1a1a;
       box-shadow: none;
     }
-
     /* Details List */
     .projects-list {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 2rem 8rem;
+      padding: 0 4rem 12rem;
       display: flex;
       flex-direction: column;
-      gap: 8rem;
+      gap: 12rem; /* Generous vertical spacing */
+      background: transparent;
     }
 
     .project-detail-item {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 4rem;
-      padding: 0 0 5rem 0;
+      flex-direction: column;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 0;
+      padding: 0;
       scroll-margin-top: 120px;
       box-shadow: none;
       transition: opacity 0.3s ease;
+      position: relative;
     }
 
     .project-detail-item:hover {
-      border-color: rgba(0, 0, 0, 0.15);
-      box-shadow: none;
       opacity: 0.95;
     }
 
     .project-media-wrapper {
-      width: 50%;
+      width: 100%;
       border-radius: 0;
       overflow: hidden;
-      height: auto;
+      position: relative;
       background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    
+    .project-media-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .project-detail-item:hover .project-media-wrapper::after {
+      opacity: 1;
+    }
+    
+    .project-media-wrapper a {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     .project-media-wrapper img, .project-media-wrapper video {
       width: 100%;
-      height: auto;
-      object-fit: contain;
-      transition: transform 0.5s ease;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       display: block;
     }
 
     .project-detail-item:hover .project-media-wrapper img,
     .project-detail-item:hover .project-media-wrapper video {
-      transform: scale(1.015);
+      transform: scale(1.02);
     }
 
-    .project-info-wrapper {
-      width: 50%;
+    /* Metadata row below media */
+    .project-meta-row {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .project-tag {
-      color: #4e6151;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-info-wrapper h2 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-      font-size: 2.25rem;
-      font-weight: 500;
-      margin: 0 0 1rem;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-    }
-
-    .project-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #555555;
-      margin-bottom: 1.5rem;
-    }
-
-    .project-meta-box {
-      background: transparent;
-      border-left: none;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 1rem 0;
-      border-radius: 0;
-      margin-bottom: 2rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      color: #555555;
-      line-height: 1.6;
-    }
-
-    .project-meta-box strong {
-      color: #1a1a1a;
-    }
-
-    .project-action-btn {
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 1.25rem;
       font-family: 'Inter', sans-serif;
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #ffffff;
-      text-decoration: none;
-      background: #1a1a1a;
-      border: 1px solid #1a1a1a;
-      padding: 0.85rem 2rem;
-      border-radius: 0;
       text-transform: uppercase;
-      align-self: flex-start;
-      box-shadow: none;
-      transition: all 0.3s ease;
-    }
-
-    .project-action-btn:hover {
-      background: transparent;
+      letter-spacing: 0.08em;
       color: #1a1a1a;
-      border-color: #1a1a1a;
-      box-shadow: none;
-      transform: none;
+      line-height: 1.4;
     }
 
-    /* Alternating layout styling */
-    .projects-list .project-detail-item:nth-child(even) {
-      flex-direction: row-reverse;
+    .project-meta-left {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #777777;
+    }
+
+    .project-meta-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      gap: 0.25rem;
+    }
+
+    .project-meta-title {
+      font-weight: 800;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-meta-title:hover {
+      opacity: 0.7;
+    }
+
+    .project-meta-category {
+      font-size: 0.65rem;
+      color: #666666;
+    }
+
+    /* Alignment & Layout classes for desktop */
+    .align-left {
+      align-self: flex-start;
+    }
+    
+    .align-right {
+      align-self: flex-end;
+    }
+    
+    .align-center {
+      align-self: center;
     }
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .project-detail-item {
-        gap: 2rem;
-        padding: 0 0 4rem 0;
-        border-radius: 0;
-      }
-      .project-media-wrapper {
-        height: auto;
-      }
-      .project-info-wrapper h2 {
-        font-size: 1.85rem;
+      .projects-list {
+        gap: 8rem;
+        padding: 0 2.5rem 8rem;
       }
     }
 
@@ -226,26 +213,20 @@
         font-size: 2.5rem;
       }
       .projects-list {
-        gap: 4rem;
-        padding-bottom: 4rem;
+        gap: 5rem;
+        padding: 0 1.5rem 6rem;
       }
       .project-detail-item {
-        flex-direction: column !important;
-        align-items: stretch;
-        padding: 0 0 3rem 0;
-        border-radius: 0;
+        width: 100% !important;
+        align-self: stretch !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
       }
       .project-media-wrapper {
-        width: 100%;
-        height: auto;
-        border-radius: 0;
+        aspect-ratio: auto !important; /* fallback to natural image layout on mobile if desired */
       }
-      .project-info-wrapper {
-        width: 100%;
-        margin-top: 1.5rem;
-      }
-      .project-info-wrapper h2 {
-        font-size: 1.5rem;
+      .project-meta-row {
+        margin-top: 1rem;
       }
     }
   </style>
@@ -340,38 +321,73 @@
             return;
           }
 
-          filtered.forEach(project => {
+          const gridConfigs = [
+            { width: '55%', align: 'left', aspectRatio: '16/10' },
+            { width: '32%', align: 'right', aspectRatio: '3/4', offsetTop: '100px' },
+            { width: '40%', align: 'left', aspectRatio: '3/4', offsetTop: '-40px' },
+            { width: '48%', align: 'right', aspectRatio: '16/10' },
+            { width: '28%', align: 'right', aspectRatio: '3/4', offsetTop: '-60px' },
+            { width: '70%', align: 'center', aspectRatio: '16/9' },
+            { width: '42%', align: 'left', aspectRatio: '16/9' },
+            { width: '30%', align: 'right', aspectRatio: '3/4' },
+            { width: '40%', align: 'left', aspectRatio: '3/4', offsetTop: '-50px' },
+            { width: '48%', align: 'right', aspectRatio: '16/10' },
+            { width: '28%', align: 'right', aspectRatio: '1/1', offsetTop: '-80px' },
+            { width: '70%', align: 'center', aspectRatio: '16/9' },
+            { width: '55%', align: 'left', aspectRatio: '16/9' },
+            { width: '32%', align: 'right', aspectRatio: '3/4' },
+            { width: '40%', align: 'left', aspectRatio: '3/4', offsetTop: '-40px' },
+            { width: '48%', align: 'right', aspectRatio: '16/10' },
+            { width: '70%', align: 'center', aspectRatio: '16/9' }
+          ];
+
+          filtered.forEach((project, idx) => {
             const item = document.createElement('article');
             item.className = 'project-detail-item';
             item.id = project.id;
             item.setAttribute('data-cat', project.category);
             
+            const cfg = gridConfigs[idx % gridConfigs.length];
+            item.style.width = cfg.width;
+            
+            const alignVal = cfg.align === 'left' ? 'flex-start' : cfg.align === 'right' ? 'flex-end' : 'center';
+            item.style.alignSelf = alignVal;
+            
+            if (cfg.offsetTop) {
+              item.style.marginTop = cfg.offsetTop;
+            }
+            
             let mediaHTML = '';
-            if (project.fileType === 'video') {
+            if (!project.image && !project.fileLink) {
               mediaHTML = `
-                <video muted playsinline loop autoplay>
+                <div class="no-image-placeholder" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f7f7f7; border: 1px solid #e0e0e0; min-height: 200px;">
+                  <div class="no-image-text" style="font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; font-weight: 700; color: #999999; text-transform: uppercase; letter-spacing: 0.1em;">No Image Found</div>
+                </div>
+              `;
+            } else if (project.fileType === 'video') {
+              mediaHTML = `
+                <video muted playsinline loop autoplay style="width: 100%; height: 100%; object-fit: cover; display: block;">
                   <source src="${project.fileLink}" type="video/mp4">
                 </video>
               `;
             } else {
-              mediaHTML = `<img src="${project.image}" alt="${project.title}">`;
+              mediaHTML = `<img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;">`;
             }
 
             item.innerHTML = `
-              <div class="project-media-wrapper">
-                <a href="project.html?id=${project.id}" style="width:100%; height:100%; display:block;">
+              <div class="project-media-wrapper" style="aspect-ratio: ${cfg.aspectRatio};">
+                <a href="project.html?id=${project.id}">
                   ${mediaHTML}
                 </a>
               </div>
-              <div class="project-info-wrapper">
-                <span class="project-tag">${project.categoryLabel}</span>
-                <h2><a href="project.html?id=${project.id}" style="color:inherit; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='#4e6151'" onmouseout="this.style.color='inherit'">${project.title}</a></h2>
-                <div class="project-meta-box">
-                  <strong>Client / Brand:</strong> ${project.client}<br>
-                  <strong>Scope:</strong> ${project.scope}
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  ${String(idx + 1).padStart(3, '0')}
                 </div>
-                <p class="project-desc">${project.description}</p>
-                <a href="project.html?id=${project.id}" class="project-action-btn">VIEW DETAILS</a>
+                <div class="project-meta-right">
+                  <a href="project.html?id=${project.id}" class="project-meta-title">${project.title}</a>
+                  <span class="project-meta-category">${project.categoryLabel}</span>
+                </div>
               </div>
             `;
             listContainer.appendChild(item);

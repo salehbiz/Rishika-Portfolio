@@ -2023,4 +2023,17 @@ body.project-list-page .nav-laura .nav-links-laura a.active-nav-box:hover {
   border-color: #000000 !important;
 }
 
+/* Custom Phone Mockup Scrollbar Overrides */
+.phone-grid-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.phone-grid-scroll::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 2px;
+}
+.phone-grid-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #cccccc transparent;
+}
+
 
