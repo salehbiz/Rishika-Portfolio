@@ -753,23 +753,26 @@ nav .social svg {
 
 .services-header {
   width: 100%;
-  max-width: 100%;
-  margin: 0 0 4rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
   box-sizing: border-box;
 }
 
 .services-title {
   font-family: 'Inter Tight', 'Inter', sans-serif;
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 600;
   letter-spacing: -0.025em;
   color: #1a1a1a;
   margin: 0;
+  text-align: center;
 }
 
 .services-link {
@@ -891,7 +894,7 @@ nav .social svg {
     padding: 0 1.5rem;
   }
   .services-header {
-    padding: 0 1.5rem 2rem 1.5rem;
+    padding: 0 1.5rem 2.5rem 1.5rem;
     margin-bottom: 3rem;
   }
   .service-card {
@@ -913,9 +916,9 @@ nav .social svg {
     padding: 0 1rem;
   }
   .services-header {
-    padding: 0 1rem 2rem 1rem;
+    padding: 0 1rem 2.5rem 1rem;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.5rem;
   }
   .service-card {
@@ -1333,6 +1336,7 @@ nav .social svg {
 @media (max-width: 768px) {
   .nav-laura {
     padding: 1rem 1.5rem;
+    justify-content: center;
   }
   .nav-laura.scrolled {
     padding: 0.75rem 1.5rem;
@@ -1367,13 +1371,10 @@ nav .social svg {
   
   .hero-bottom-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 2.5rem;
     padding: 0 0.5rem;
-  }
-  
-  .hero-bottom-right {
-    text-align: left;
   }
 
   .welcome-section {
@@ -1383,12 +1384,17 @@ nav .social svg {
     gap: 2.5rem;
   }
   .welcome-heading {
-    font-size: 2.25rem;
-    line-height: 1.2;
+    font-size: clamp(1.6rem, 8vw, 2.05rem);
+    line-height: 1.25;
+    text-align: center;
+  }
+  .welcome-heading br {
+    display: none;
   }
   .welcome-body p {
     font-size: 1rem;
     line-height: 1.65;
+    text-align: center;
   }
 }
 
@@ -1578,17 +1584,20 @@ nav .social svg {
 
 .contact-container {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  gap: 5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
 }
 
 .contact-info {
-  width: 45%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 2rem;
 }
 
@@ -1602,10 +1611,12 @@ nav .social svg {
   margin: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
 }
 
-.contact-subtitle::before {
+.contact-subtitle::before,
+.contact-subtitle::after {
   content: "";
   display: inline-block;
   width: 16px;
@@ -1615,12 +1626,13 @@ nav .social svg {
 
 .contact-heading {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
   font-weight: 600;
   color: #ffffff;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .contact-heading .cyan-text {
@@ -1633,12 +1645,15 @@ nav .social svg {
   font-size: 1.05rem;
   line-height: 1.7;
   color: #a3a3a3;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 38rem;
+  text-align: center;
 }
 
 .quick-contact-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -1728,7 +1743,9 @@ nav .social svg {
 }
 
 .contact-form-container {
-  width: 50%;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .contact-form {
@@ -1945,24 +1962,37 @@ nav .social svg {
     width: 100%;
   }
   .contact-heading {
-    font-size: 2.25rem;
+    font-size: clamp(1.6rem, 8vw, 2.25rem);
+    line-height: 1.25;
+  }
+  .contact-heading br {
+    display: none;
   }
   .footer-section {
     padding: 2.5rem 1.5rem;
   }
   .footer-top {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 2rem;
   }
   .footer-nav {
     flex-direction: column;
+    align-items: center;
     gap: 1.25rem;
   }
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 1.5rem;
+  }
+  .footer-socials {
+    justify-content: center;
+  }
+  .footer-copyright {
+    text-align: center;
   }
 }
 
