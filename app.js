@@ -435,4 +435,18 @@
 
   initStackedCards();
   */
+
+  // Toggle navigation dropdown menu on mobile
+  const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+  if (dropdownMenu) {
+    const triggerBtn = dropdownMenu.querySelector('.dropdown-trigger-btn');
+    triggerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('active');
+    });
+    
+    document.addEventListener('click', () => {
+      dropdownMenu.classList.remove('active');
+    });
+  }
 })();
