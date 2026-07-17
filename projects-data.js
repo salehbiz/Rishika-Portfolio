@@ -8,12 +8,14 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Prepaid Website Redesign, UX & Web Design",
     "description": "CanadianSIM provides Canadian phone numbers and SIM plans to newcomers, international students, and travellers before they even land in the country. One website originally served both prepaid and postpaid users, and its lengthy checkout was quietly costing the business, prepaid buyers, mostly short-term tourist visitors and visa holders, were dropping off before completing their order. Tested a simplified Shopify Quick Checkout for prepaid users first, and once it proved out in real orders, led a full redesign of the prepaid site around that same logic. Conversion rate nearly doubled as a result.",
-    "image": "",
-    "fileLink": "",
+    "image": "portfolio/canadiansim/canadiansim_esim_ad.jpg",
+    "fileLink": "portfolio/canadiansim/canadiansim_esim_ad.jpg",
     "fileType": "image",
     "fileLabel": "View Asset",
     "layout": "web-layout",
-    "featuredImages": [],
+    "featuredImages": [
+      "portfolio/canadiansim/canadiansim_esim_ad.jpg"
+    ],
     "archiveImages": [],
     "performanceTable": [
       {
@@ -373,12 +375,12 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Creative marketing layouts, skin pH 5.5 banners, & promotional assets.",
     "description": "Visual campaign boards designed for Sebamed skincare. Focused heavily on high-contrast product staging, scientific pH 5.5 formulation advantages, and clinical cleansing branding lines tailored for digital and print distribution.",
-    "image": "portfolio/sebamed/slide_1_opt.jpg",
+    "image": "portfolio/sebamed/warmup_dumbbell.jpg",
     "fileLink": "portfolio/sebamed/Untitled(1).pdf",
     "fileType": "pdf",
     "fileLabel": "View Campaign Book",
     "featuredImages": [
-      "portfolio/sebamed/slide_1_opt.jpg",
+      "portfolio/sebamed/warmup_dumbbell.jpg",
       "portfolio/sebamed/slide_2.png",
       "portfolio/sebamed/slide_3.png",
       "portfolio/sebamed/slide_4.png",
@@ -417,12 +419,12 @@ const projectsData = [
     "categoryLabel": "Packaging",
     "scope": "Packaging Design Wraps, Key Visual Advertisements, Mockups & Campaign Identity.",
     "description": "This campaign details a complete graphic rebranding and packaging overhaul for Storia's Mango Shake line. Utilizing highly stylized, vibrant tropical mango illustrations alongside structured, modern block typography, the layouts establish a premium and refreshing consumer shelf presence. The creative direction centres around the emotional hook, 'Wish it never gets over,' emphasizing taste longevity and premium quality.",
-    "image": "portfolio/storia/slide_1.png",
+    "image": "portfolio/storia/storia_mango_shake.jpg",
     "fileLink": "portfolio/storia/Untitled-2.pdf",
     "fileType": "pdf",
     "fileLabel": "View Campaign Deck",
     "featuredImages": [
-      "portfolio/storia/slide_1.png",
+      "portfolio/storia/storia_mango_shake.jpg",
       "portfolio/storia/slide_2.png",
       "portfolio/storia/slide_3.png",
       "portfolio/storia/slide_4.png",
@@ -475,12 +477,12 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Newspaper catalog ads, high-jewelry layout, print media design.",
     "description": "A print campaign consisting of 16x20 cm catalog advertisements for Malabar Gold & Diamonds. Layouts are optimized for regional newspaper and luxury magazine prints, displaying complex jewelry designs against clean, high-contrast backgrounds.",
-    "image": "portfolio/malabar/16x20cms-Ads-02_opt.jpg",
-    "fileLink": "portfolio/malabar/16x20cms-Ads-02_opt.jpg",
+    "image": "portfolio/malabar/malabar_bloom_ad.jpg",
+    "fileLink": "portfolio/malabar/malabar_bloom_ad.jpg",
     "fileType": "image",
     "fileLabel": "View Asset",
     "featuredImages": [
-      "portfolio/malabar/16x20cms-Ads-02_opt.jpg",
+      "portfolio/malabar/malabar_bloom_ad.jpg",
       "portfolio/malabar/16x20cms-Ads-03.jpg",
       "portfolio/malabar/16x20cms-Ads-04.jpg"
     ],
@@ -494,12 +496,12 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Traditional pattern incorporation, box wraps, labels, and visual identity guides.",
     "description": "Brand book showcasing ethnic fashion design concepts based on the traditional Indian hand block print art style of Kalamkari. Incorporates organic maroons and indigo motifs on premium gold-embossed clothing tags and textile boxes.",
-    "image": "portfolio/kalam-kari/slide_1_opt.jpg",
+    "image": "portfolio/kalam-kari/kalamkari_cardboard_logo.jpg",
     "fileLink": "portfolio/brand-identity/Kalam Kari .pdf",
     "fileType": "pdf",
     "fileLabel": "View Brand Book",
     "featuredImages": [
-      "portfolio/kalam-kari/slide_1_opt.jpg",
+      "portfolio/kalam-kari/kalamkari_cardboard_logo.jpg",
       "portfolio/kalam-kari/slide_2.png",
       "portfolio/kalam-kari/slide_3.png",
       "portfolio/kalam-kari/slide_4.png",
@@ -521,12 +523,12 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Social media banners, print ads, and logo layouts.",
     "description": "A marketing layout designed for Radio City FM, one of India's biggest media networks. Displays bold graphic colors and brand positioning creatives aimed at increasing local listenership.",
-    "image": "portfolio/radio-city/Radio City_01_opt.jpg",
-    "fileLink": "portfolio/radio-city/Radio City_01_opt.jpg",
+    "image": "portfolio/radio-city/radiocity_rofl_ad.jpg",
+    "fileLink": "portfolio/radio-city/radiocity_rofl_ad.jpg",
     "fileType": "image",
     "fileLabel": "View Asset",
     "featuredImages": [
-      "portfolio/radio-city/Radio City_01_opt.jpg"
+      "portfolio/radio-city/radiocity_rofl_ad.jpg"
     ],
     "archiveImages": []
   },
@@ -604,12 +606,12 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "One Mansingh Road, Print Ad",
     "description": "One Mansingh Road has quietly hosted Delhi's most private moments, budget meetings, first dates, a generation's first taste of authentic Sichuan food, long before the hotel needed to say so. Art directed a print ad for the Taj Mahal Hotel's relaunch that leaned entirely on that history rather than the renovation itself. The message wasn't \u201cwe've redecorated,\u201d it was \u201cthis address has always meant something, and now it's ready for your story too.\u201d The new decor and refreshed spaces were positioned as an invitation to add to that history, not a reason to visit for the first time.",
-    "image": "portfolio/taj/taj-1-01_opt.jpg",
-    "fileLink": "portfolio/taj/taj-1-01_opt.jpg",
+    "image": "portfolio/taj/taj_mansingh_ad.jpg",
+    "fileLink": "portfolio/taj/taj_mansingh_ad.jpg",
     "fileType": "image",
     "fileLabel": "View Asset",
     "featuredImages": [
-      "portfolio/taj/taj-1-01_opt.jpg",
+      "portfolio/taj/taj_mansingh_ad.jpg",
       "portfolio/taj/taj-1-02.jpg"
     ],
     "archiveImages": []

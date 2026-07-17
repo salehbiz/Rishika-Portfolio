@@ -25,14 +25,16 @@
   <link rel="stylesheet" href="styles.css?v=13" />
   
   <style>
-    /* Cipher.tv Asymmetrical Layout Overrides for Selected Portfolio (Clean Grid) */
+    /* Clean 3-Column Square Grid Layout (Flexbox centered) */
     .services-cards-container {
       max-width: 1400px !important;
       margin: 0 auto !important;
-      padding: 2rem 4rem 6rem !important;
+      padding: 2rem 4rem 1rem !important;
       display: flex !important;
-      flex-direction: column !important;
-      gap: 5rem !important; /* Clean, reduced vertical gaps */
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 3rem !important;
+      row-gap: 4.5rem !important;
       background: transparent !important;
     }
 
@@ -47,6 +49,7 @@
       transition: opacity 0.3s ease !important;
       position: relative !important;
       top: auto !important;
+      width: calc((100% - 6rem) / 3) !important;
     }
 
     .service-card:hover {
@@ -55,12 +58,12 @@
 
     .service-card-image-wrapper {
       width: 100% !important;
+      aspect-ratio: 1 / 1 !important;
       border-radius: 0 !important;
       overflow: hidden !important;
       position: relative !important;
-      background: transparent !important;
+      background: #ffffff !important;
       border: 1px solid rgba(0, 0, 0, 0.04) !important;
-      aspect-ratio: auto !important; /* Force natural display proportions */
     }
 
     .service-card-image-wrapper::after {
@@ -70,7 +73,7 @@
       left: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      background: rgba(0, 0, 0, 0.2) !important; /* Premium semi-transparent dark overlay */
+      background: rgba(0, 0, 0, 0.1) !important; /* Soft premium dark overlay on hover */
       opacity: 0 !important;
       transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
       pointer-events: none !important;
@@ -82,7 +85,7 @@
     }
 
     .service-card-image-wrapper.no-image-placeholder {
-      aspect-ratio: 1.55 !important;
+      aspect-ratio: 1 / 1 !important;
       background: #f7f7f7 !important;
       display: flex !important;
       align-items: center !important;
@@ -102,11 +105,15 @@
     .service-card-image-wrapper img,
     .service-card-image-wrapper video {
       width: 100% !important;
-      height: auto !important; /* Scale height proportionally */
-      object-fit: contain !important; /* Do not scale/crop image edges */
+      height: 100% !important;
+      object-fit: cover !important; /* Crop to fill the square */
       display: block !important;
-      transform: none !important;
-      transition: none !important;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .service-card:hover .service-card-image-wrapper img,
+    .service-card:hover .service-card-image-wrapper video {
+      transform: scale(1.04) !important;
     }
 
     /* Metadata row below image */
@@ -147,34 +154,23 @@
       letter-spacing: 0.08em !important;
     }
 
-    /* Asymmetric Column Width Classes */
-    .width-28 { width: 28% !important; }
-    .width-30 { width: 30% !important; }
-    .width-32 { width: 32% !important; }
-    .width-35 { width: 35% !important; }
-    .width-40 { width: 40% !important; }
-    .width-42 { width: 42% !important; }
-    .width-45 { width: 45% !important; }
-    .width-48 { width: 48% !important; }
-    .width-50 { width: 50% !important; }
-
-    /* Alignments */
-    .align-left { align-self: flex-start !important; }
-    .align-right { align-self: flex-end !important; }
-    .align-center { align-self: center !important; }
-
     /* Responsive */
     @media (max-width: 1024px) {
       .services-cards-container {
-        gap: 4rem !important;
-        padding: 0 2.5rem 6rem !important;
+        gap: 2.5rem !important;
+        row-gap: 4rem !important;
+        padding: 2rem 2.5rem 6rem !important;
+      }
+      .service-card {
+        width: calc((100% - 2.5rem) / 2) !important;
       }
     }
 
     @media (max-width: 768px) {
       .services-cards-container {
-        gap: 3.5rem !important;
-        padding: 0 1.5rem 4rem !important;
+        gap: 2rem !important;
+        row-gap: 3.5rem !important;
+        padding: 2rem 1.5rem 4rem !important;
       }
       .service-card {
         width: 100% !important;
@@ -183,7 +179,7 @@
         margin-bottom: 0 !important;
       }
       .service-card-image-wrapper {
-        aspect-ratio: auto !important; /* fallback to natural ratio on mobile */
+        aspect-ratio: 1 / 1 !important;
       }
       .service-card-content {
         margin-top: 1rem !important;
@@ -201,7 +197,7 @@
   <a href="#" class="logo-laura">RISHIKA WALIA</a>
     <div class="nav-links-laura">
       <a href="#what-we-do" class="active-nav-box">PORTFOLIO</a>
-      <a href="#about">ABOUT ME</a>
+      <a href="about.html">ABOUT ME</a>
       <a href="#contact">CONTACT</a>
     </div>
 </nav>
@@ -263,8 +259,8 @@
     <div class="services-cards-container">
       <!-- Card 1: CanadianSIM Website Redesign -->
       <a href="project.html?id=canadiansim" class="service-card align-right width-35">
-        <div class="service-card-image-wrapper no-image-placeholder">
-          <div class="no-image-text">No Image Found</div>
+        <div class="service-card-image-wrapper">
+          <img src="portfolio/canadiansim/canadiansim_esim_ad.jpg" alt="CanadianSIM Web Redesign" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>001</span>
@@ -341,7 +337,7 @@
       <!-- Card 8: Sebamed Skin Care -->
       <a href="project.html?id=sebamed" class="service-card align-left width-45">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/sebamed/slide_1_opt.jpg" alt="Sebamed Skin Care" loading="lazy">
+          <img src="portfolio/sebamed/warmup_dumbbell.jpg" alt="Sebamed Skin Care" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>008</span>
@@ -352,7 +348,7 @@
       <!-- Card 9: Storia Mango Shake -->
       <a href="project.html?id=storia" class="service-card align-right width-35">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/storia/slide_1.png" alt="Storia Mango Shake" loading="lazy">
+          <img src="portfolio/storia/storia_mango_shake.jpg" alt="Storia Mango Shake" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>009</span>
@@ -363,7 +359,7 @@
       <!-- Card 10: Scribble Construction -->
       <a href="project.html?id=scribble" class="service-card align-left width-32">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/scribble/slide_1_opt.jpg" alt="Scribble Construction" loading="lazy">
+          <video src="portfolio/brand-identity/Scribble Construction /Sequence 03.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>010</span>
@@ -374,7 +370,7 @@
       <!-- Card 11: Malabar Product Launch Ads -->
       <a href="project.html?id=malabar" class="service-card align-right width-35">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/malabar/16x20cms-Ads-02_opt.jpg" alt="Malabar Gold & Diamonds" loading="lazy">
+          <img src="portfolio/malabar/malabar_bloom_ad.jpg" alt="Malabar Gold & Diamonds" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>011</span>
@@ -385,7 +381,7 @@
       <!-- Card 12: Kalam Kari Fashion -->
       <a href="project.html?id=kalam-kari" class="service-card align-left width-40">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/kalam-kari/slide_1_opt.jpg" alt="Kalam Kari Fashion" loading="lazy">
+          <img src="portfolio/kalam-kari/kalamkari_cardboard_logo.jpg" alt="Kalam Kari Fashion" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>012</span>
@@ -396,7 +392,7 @@
       <!-- Card 13: Radio City Ads -->
       <a href="project.html?id=radio-city" class="service-card align-right width-30">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/radio-city/Radio City_01_opt.jpg" alt="Radio City Ads" loading="lazy">
+          <img src="portfolio/radio-city/radiocity_rofl_ad.jpg" alt="Radio City Ads" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>013</span>
@@ -418,7 +414,7 @@
       <!-- Card 15: Life Sand Animation -->
       <a href="project.html?id=life-sand" class="service-card align-right width-45">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/life-sand/life-sand_thumb_opt.jpg" alt="Life Sand Animation" loading="lazy">
+          <video src="portfolio/life-sand/Life_Sand Animation.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>015</span>
@@ -440,7 +436,7 @@
       <!-- Card 17: The Taj Mahal Hotel Print Ad -->
       <a href="project.html?id=taj" class="service-card align-right width-48">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/taj/taj-1-01_opt.jpg" alt="The Taj Mahal Hotel Print Ad" loading="lazy">
+          <img src="portfolio/taj/taj_mansingh_ad.jpg" alt="The Taj Mahal Hotel Print Ad" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>017</span>
@@ -451,7 +447,7 @@
   </section>
 
   <!-- Logo Loop Section -->
-  <section class="partners-section" style="margin-top: 6rem; margin-bottom: 6rem;">
+  <section class="partners-section" style="margin-top: 1rem; margin-bottom: 6rem;">
     <div class="partners-title">Brands I've Worked With</div>
     <div id="partners-loop" class="logoloop logoloop--horizontal logoloop--fade">
       <div class="logoloop__track">
@@ -631,19 +627,55 @@
   <!-- Section 1: Hero (About Me) -->
   <section id="about">
     <div class="hero-top-spacer"></div>
-    <div class="hero-middle-content">
-      <div class="laura-hero-title-container">
-        <span class="hero-dot"></span>
-        <h1 class="hero-name">Rishika</h1>
+    <div class="hero-middle-content" style="padding-left: 0; width: 100%; overflow: hidden; transform: translateY(80px);">
+      <div class="marquee-name-container">
+        <div class="marquee-name-track">
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+          <div class="marquee-item">
+            <span class="hero-dot"></span>
+            <span class="marquee-name-text">Rishika Walia</span>
+            <span class="hero-dot"></span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero-bottom-content">
       <div class="hero-bottom-left">
         <span>BASED IN TORONTO, CANADA</span>
-      </div>
-      <div class="hero-bottom-right">
-        <p>Art Director &amp; Creative Lead</p>
-        <p>Brand Systems &amp; Digital Growth</p>
       </div>
     </div>
   </section>
@@ -655,144 +687,14 @@
       <h2 class="welcome-heading">Hi, I'm Rishika<br>I craft brand <span class="cyan-text">stories</span> &amp;<br>high-impact campaigns</h2>
       <div class="welcome-body">
         <p>I am an Art Director and Creative Lead with 8+ years of experience spanning global advertising agencies and leading in-house brands. My practice sits at the intersection of brand systems, creative campaigns, e-commerce, and business development.</p>
-        <p>I believe design should not only capture attention but drive real, provable growth. By bridging creative direction with commercial ownership, I build systems that perform.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: What I Do (Profile / Tags) -->
-  <section class="what-i-do-section">
-    <div class="what-i-do-sidebar">
-      <h2 class="what-i-do-title">What I Do</h2>
-    </div>
-    <div class="what-i-do-content">
-      <!-- Category 1: Brand & Campaign Direction -->
-      <div class="what-i-do-category">
-        <h3>Brand &amp; Campaign Direction</h3>
-        <p>Leading cross-platform visual identity systems, digital campaigns, and print media layouts. I translate high-level business goals into cohesive brand books and shelf-ready packaging artwork.</p>
-        <div class="tags-container">
-          <span class="tag">Brand Identity</span>
-          <span class="tag">Design Systems</span>
-          <span class="tag">Campaign Creative</span>
-          <span class="tag">Packaging Design</span>
-          <span class="tag">Visual Storytelling</span>
-          <span class="tag">Typography</span>
-        </div>
-      </div>
-
-      <!-- Category 2: Digital & E-Commerce Ownership -->
-      <div class="what-i-do-category">
-        <h3>Digital &amp; E-Commerce Ownership</h3>
-        <p>Owning digital platforms end-to-end. I direct model and product photography, design websites, lead social content strategies, and build conversion-focused paid ad setups.</p>
-        <div class="tags-container">
-          <span class="tag">Website Design</span>
-          <span class="tag">E-Commerce Optimization</span>
-          <span class="tag">Social Media Strategy</span>
-          <span class="tag">Photo/Video Direction</span>
-          <span class="tag">Paid Advertising</span>
-          <span class="tag">Analytics &amp; Conversion</span>
-        </div>
-      </div>
-
-      <!-- Category 3: AI-Native Creative Practice -->
-      <div class="what-i-do-category">
-        <h3>AI-Native Creative Practice</h3>
-        <p>Leading hands-on integration of generative tools directly into production pipelines. By blending AI-assisted tooling with agency craft, I accelerate output and turnarounds without losing conceptual polish.</p>
-        <div class="tags-container">
-          <span class="tag">Midjourney</span>
-          <span class="tag">Adobe Firefly</span>
-          <span class="tag">Runway ML</span>
-          <span class="tag">Seedance</span>
-          <span class="tag">Creatify AI</span>
-          <span class="tag">Generative Workflows</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience & Education Section -->
-  <section class="timeline-section">
-    <div class="timeline-container">
-      <div class="timeline-sidebar">
-        <h2>Career History &amp;<br><span class="cyan-text">Education</span></h2>
-        <p>
-          Bridging global-agency level craft with in-house brand leadership and hands-on commercial ownership.
-        </p>
-      </div>
-      <div class="timeline-content">
-        
-        <!-- Experience -->
-        <div>
-          <h3>Professional Experience</h3>
-          <div class="timeline-items">
-            
-            <div class="timeline-item present">
-              <span class="time">May 2025 – Present</span>
-              <h4>Creative Lead</h4>
-              <p class="company">Wireless DNA Inc</p>
-              <p class="desc">
-                Overseeing creative direction across national Canadian telecom brands (Rogers, Fido, Chatr) spanning digital, retail, DOOH, and social channels. Owning end-to-end digital ownership and e-commerce for CanadianSIM prepaid eSIM platforms, lifting web conversion from 3.96% to 7.33% (+85% conversion increase).
-              </p>
-            </div>
-
-            <div class="timeline-item">
-              <span class="time">October 2019 – December 2021</span>
-              <h4>Art Director</h4>
-              <p class="company">Leo Burnett</p>
-              <p class="desc">
-                Directed multi-channel digital and print identity design systems for global consumer tech, airline, and telecom clients including Apple, Airtel, and SpiceJet. Created storytelling campaigns linked to an estimated 24% boost in corporate partner engagement.
-              </p>
-            </div>
-
-            <div class="timeline-item">
-              <span class="time">April 2019 – September 2019</span>
-              <h4>Art Director</h4>
-              <p class="company">Metal Communication</p>
-              <p class="desc">
-                Directed and produced product launches, model photoshoots, and digital marketing strategies for luxury brands including Malabar Gold &amp; Diamonds and Khimji Jewelers.
-              </p>
-            </div>
-
-            <div class="timeline-item">
-              <span class="time">April 2018 – March 2019</span>
-              <h4>Art Director</h4>
-              <p class="company">Scarecrow M&amp;C Saatchi</p>
-              <p class="desc">
-                Acted as the agency account design lead, building brand identity systems from the ground up for Houm Technology and designing CPG marketing layouts for Sebamed Germany.
-              </p>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div>
-          <h3>Education</h3>
-          <div class="timeline-items">
-            
-            <div class="timeline-item">
-              <span class="time">York University (2023)</span>
-              <h4>Postgraduate Certificate in Digital &amp; Content Marketing</h4>
-            </div>
-
-            <div class="timeline-item">
-              <span class="time">Seneca College (2022)</span>
-              <h4>Postgraduate Certificate in Marketing Management</h4>
-            </div>
-
-            <div class="timeline-item">
-              <span class="time">MICA (2018)</span>
-              <h4>Crafting Creative Communication</h4>
-            </div>
-
-            <div class="timeline-item">
-              <span class="time">University of Delhi (2016)</span>
-              <h4>B.Com (Honours)</h4>
-            </div>
-
-          </div>
-        </div>
-
+        <a href="portfolio/Rishika_Walia_Resume.pdf" download class="resume-btn">
+          Download Resume
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -826,51 +728,14 @@
           </a>
         </div>
         
-        <!-- Calendly Embed Placeholder -->
-        <div class="calendly-placeholder">
-          <div class="calendly-placeholder-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <p class="calendly-placeholder-text">
-            <span>Direct Scheduling coming soon</span>
-            Integrating standard calendar scheduling/booking interface soon.
-          </p>
-        </div>
       </div>
       
-      <!-- Right column: Message Form -->
+      <!-- Right column: Calendly Scheduler -->
       <div class="contact-form-container">
-        <form class="contact-form" id="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent successfully! (This is a demo form)'); this.reset();">
-          <div class="form-group">
-            <input type="text" id="form-name" name="name" required placeholder=" " />
-            <label for="form-name">Your Name</label>
-          </div>
-          <div class="form-group">
-            <input type="email" id="form-email" name="email" required placeholder=" " />
-            <label for="form-email">Email Address</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="form-subject" name="subject" required placeholder=" " />
-            <label for="form-subject">Subject</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="form-message" name="message" required placeholder=" " style="display:none;" value="Self Submission Form" />
-            <textarea id="form-message-text" name="message_text" rows="5" required placeholder=" " style="background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.15); width:100%; color:#fff; font-family:'Inter',sans-serif; font-size:0.95rem; padding:0.5rem 0; margin-bottom:2rem; outline:none; transition:border-color 0.3s;" onfocus="this.style.borderColor='#00d8ff'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'"></textarea>
-            <label for="form-message-text" style="position:absolute; left:0; top:-10px; font-size:0.75rem; color:#00d8ff; transition:all 0.3s;">Message</label>
-          </div>
-          <button type="submit" class="submit-form-btn">
-            Send Message
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="send-icon">
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-            </svg>
-          </button>
-        </form>
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/rishika-walia/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=010101&text_color=ffffff&primary_color=6b83a6" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
       </div>
       
     </div>
@@ -883,7 +748,7 @@
         <a href="#" class="footer-logo">RISHIKA WALIA</a>
         <div class="footer-nav">
           <a href="#what-we-do">PORTFOLIO</a>
-          <a href="#about">ABOUT ME</a>
+          <a href="about.html">ABOUT ME</a>
           <a href="#contact">CONTACT</a>
         </div>
       </div>
