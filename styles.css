@@ -1205,6 +1205,7 @@ nav .social svg {
   justify-content: flex-start;
   padding-left: 2rem;
   transform: translateY(-60px); /* Shift name text up on desktop to cover the face */
+  mix-blend-mode: difference; /* Apply color inversion blend mode here so all children blend with the background of #about */
 }
 
 .laura-hero-title-container {
@@ -1227,7 +1228,6 @@ nav .social svg {
   z-index: 2;
   display: flex;
   align-items: center;
-  mix-blend-mode: difference; /* Invert color blend mode active at all times on container level */
 }
 
 .marquee-name-track {
