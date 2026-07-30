@@ -164,7 +164,8 @@ body, p, a, span, li, button, input, textarea, code, .tag {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 3;
+  z-index: 1;
+  opacity: 0.55;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -563,7 +564,7 @@ nav .social svg {
 
 .logoloop__item span {
   font-size: 0.9rem !important;
-  color: #1a1a1a !important;
+  color: #1a1a1a;
 }
 
 .logoloop--fade::before,
@@ -582,7 +583,7 @@ nav .social svg {
   background: linear-gradient(
     to right,
     var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(255, 255, 255, 0) 100%
+    transparent 100%
   );
 }
 
@@ -591,7 +592,7 @@ nav .social svg {
   background: linear-gradient(
     to left,
     var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(255, 255, 255, 0) 100%
+    transparent 100%
   );
 }
 
@@ -1164,7 +1165,7 @@ nav .social svg {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url('portfolio/rishika_portrait.jpg');
+  background-image: url('portfolio/rishika_portrait_new.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1203,7 +1204,7 @@ nav .social svg {
   align-items: center;
   justify-content: flex-start;
   padding-left: 2rem;
-  transform: translateY(80px); /* Shift name text down on desktop */
+  transform: translateY(-60px); /* Shift name text up on desktop to cover the face */
 }
 
 .laura-hero-title-container {
@@ -1213,12 +1214,7 @@ nav .social svg {
 }
 
 .hero-dot {
-  width: 32px;
-  height: 32px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.3);
+  display: none; /* Hide the blue/accent circles completely */
 }
 
 /* Infinite Scrolling Name Marquee (Right Scroll) */
@@ -1235,8 +1231,8 @@ nav .social svg {
 
 .marquee-name-track {
   display: inline-flex;
-  gap: 8rem;
-  padding-right: 8rem;
+  gap: 4rem; /* Gap between marquee-item names when dots are hidden */
+  padding-right: 4rem;
   animation: marquee-right 36s linear infinite;
   width: max-content;
   will-change: transform;
@@ -1245,21 +1241,21 @@ nav .social svg {
 .marquee-item {
   display: inline-flex;
   align-items: center;
-  gap: 3rem; /* spacing between dots and text */
+  gap: 0; /* Remove gap between dot and text as dots are hidden */
 }
 
 .marquee-item .hero-dot {
-  width: clamp(1.5rem, 3vw, 3rem);
-  height: clamp(1.5rem, 3vw, 3rem);
+  display: none;
 }
 
 .marquee-name-text {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: clamp(6rem, 16vw, 14rem); /* Increased font size */
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.03em;
   line-height: 1;
+  mix-blend-mode: difference; /* Invert color blend mode active at all times */
 }
 
 @keyframes marquee-right {
@@ -1273,7 +1269,7 @@ nav .social svg {
 
 .hero-name {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: clamp(6rem, 16vw, 14rem); /* Increased font size to match marquee */
   font-weight: 700;
   color: #1a1a1a;
   letter-spacing: -0.03em;
@@ -1462,7 +1458,7 @@ nav .social svg {
   
   .hero-middle-content {
     padding-left: 0.5rem;
-    transform: translateY(0); /* Keep centered on mobile */
+    transform: translateY(-30px); /* Shift name text up slightly on mobile */
   }
   
   .laura-hero-title-container {
@@ -1470,12 +1466,11 @@ nav .social svg {
   }
   
   .hero-dot {
-    width: 20px;
-    height: 20px;
+    display: none;
   }
   
   .hero-name {
-    font-size: clamp(3.5rem, 15vw, 6.5rem);
+    font-size: clamp(4.5rem, 18vw, 8.5rem); /* Increased mobile font size */
   }
   
   .hero-bottom-content {
@@ -1693,20 +1688,21 @@ nav .social svg {
 
 .contact-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 4rem;
 }
 
 .contact-info {
-  width: 100%;
+  width: 45%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 2rem;
 }
 
@@ -1720,7 +1716,7 @@ nav .social svg {
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem;
 }
 
@@ -1740,8 +1736,8 @@ nav .social svg {
   color: #ffffff;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0;
+  text-align: left;
 }
 
 .contact-heading .cyan-text {
@@ -1754,15 +1750,15 @@ nav .social svg {
   font-size: 1.05rem;
   line-height: 1.7;
   color: #a3a3a3;
-  margin: 0 auto;
+  margin: 0;
   max-width: 38rem;
-  text-align: center;
+  text-align: left;
 }
 
 .quick-contact-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -1852,7 +1848,7 @@ nav .social svg {
 }
 
 .contact-form-container {
-  width: 100%;
+  width: 50%;
   max-width: 650px;
   margin: 0 auto;
 }
@@ -1957,13 +1953,21 @@ nav .social svg {
    Footer Section Styles
    ======================================================== */
 .footer-section {
+  --footer-bg: #010101;
+  --footer-border: rgba(255, 255, 255, 0.05);
+  --footer-border-inner: rgba(255, 255, 255, 0.08);
+  --footer-logo-color: #ffffff;
+  --footer-link-color: #a3a3a3;
+  --footer-link-hover: #ffffff;
+  --footer-copyright-color: #a3a3a3;
+
   width: 100%;
-  background: #010101;
+  background: var(--footer-bg);
   padding: 2.5rem 3.5rem;
   box-sizing: border-box;
   position: relative;
   z-index: 5;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-container {
@@ -1985,7 +1989,7 @@ nav .social svg {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #ffffff;
+  color: var(--footer-logo-color);
   letter-spacing: -0.02em;
   text-decoration: none;
 }
@@ -1999,28 +2003,28 @@ nav .social svg {
   font-family: 'Outfit', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #a3a3a3;
+  color: var(--footer-link-color);
   letter-spacing: 0.1em;
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
 .footer-nav a:hover {
-  color: #ffffff;
+  color: var(--footer-link-hover);
 }
 
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--footer-border-inner);
   padding-top: 1.5rem;
 }
 
 .footer-copyright {
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
-  color: #a3a3a3;
+  color: var(--footer-copyright-color);
   margin: 0;
 }
 
@@ -2033,14 +2037,27 @@ nav .social svg {
   font-family: 'Outfit', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #a3a3a3;
+  color: var(--footer-link-color);
   letter-spacing: 0.1em;
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
 .footer-socials a:hover {
-  color: #ffffff;
+  color: var(--footer-link-hover);
+}
+
+/* Light mode footer overrides for subpages */
+body.about-page:not(.dark-theme) .footer-section,
+body.project-detail-page:not(.dark-theme) .footer-section,
+body.project-list-page:not(.dark-theme) .footer-section {
+  --footer-bg: #ffffff;
+  --footer-border: rgba(0, 0, 0, 0.08);
+  --footer-border-inner: rgba(0, 0, 0, 0.08);
+  --footer-logo-color: #1a1a1a;
+  --footer-link-color: #555555;
+  --footer-link-hover: #1a1a1a;
+  --footer-copyright-color: #777777;
 }
 
 /* ========================================================
@@ -2066,16 +2083,32 @@ nav .social svg {
     flex-direction: column;
     gap: 4rem;
   }
-  .contact-info,
+  .contact-info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
   .contact-form-container {
     width: 100%;
+  }
+  .contact-subtitle {
+    justify-content: center;
   }
   .contact-heading {
     font-size: clamp(1.6rem, 8vw, 2.25rem);
     line-height: 1.25;
+    margin: 0 auto;
+    text-align: center;
   }
   .contact-heading br {
     display: none;
+  }
+  .contact-description {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .quick-contact-actions {
+    justify-content: center;
   }
   .footer-section {
     padding: 2.5rem 1.5rem;
@@ -2108,19 +2141,19 @@ nav .social svg {
 /* ========================================================
    Detail and List Page Overrides (Force Light Mode Navigation)
    ======================================================== */
-body.project-detail-page,
-body.project-list-page {
+body.project-detail-page:not(.dark-theme),
+body.project-list-page:not(.dark-theme) {
   background: #ffffff !important;
   color: #1a1a1a !important;
 }
 
-body.project-detail-page #particles-canvas,
-body.project-list-page #particles-canvas {
+body.project-detail-page:not(.dark-theme) #particles-canvas,
+body.project-list-page:not(.dark-theme) #particles-canvas {
   display: none !important;
 }
 
-body.project-detail-page .nav-laura,
-body.project-list-page .nav-laura {
+body.project-detail-page:not(.dark-theme) .nav-laura,
+body.project-list-page:not(.dark-theme) .nav-laura {
   padding: 1.25rem 3.5rem;
   background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(16px) !important;
@@ -2128,30 +2161,30 @@ body.project-list-page .nav-laura {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
-body.project-detail-page .nav-laura .logo-laura,
-body.project-list-page .nav-laura .logo-laura {
+body.project-detail-page:not(.dark-theme) .nav-laura .logo-laura,
+body.project-list-page:not(.dark-theme) .nav-laura .logo-laura {
   color: #1a1a1a !important;
 }
 
-body.project-detail-page .nav-laura .nav-links-laura a,
-body.project-list-page .nav-laura .nav-links-laura a {
+body.project-detail-page:not(.dark-theme) .nav-laura .nav-links-laura a,
+body.project-list-page:not(.dark-theme) .nav-laura .nav-links-laura a {
   color: #555555 !important;
 }
 
-body.project-detail-page .nav-laura .nav-links-laura a:hover,
-body.project-list-page .nav-laura .nav-links-laura a:hover {
+body.project-detail-page:not(.dark-theme) .nav-laura .nav-links-laura a:hover,
+body.project-list-page:not(.dark-theme) .nav-laura .nav-links-laura a:hover {
   color: #1a1a1a !important;
 }
 
-body.project-detail-page .nav-laura .nav-links-laura a.active-nav-box,
-body.project-list-page .nav-laura .nav-links-laura a.active-nav-box {
+body.project-detail-page:not(.dark-theme) .nav-laura .nav-links-laura a.active-nav-box,
+body.project-list-page:not(.dark-theme) .nav-laura .nav-links-laura a.active-nav-box {
   color: #1a1a1a !important;
   border-color: #1a1a1a !important;
   background: rgba(0, 0, 0, 0.02) !important;
 }
 
-body.project-detail-page .nav-laura .nav-links-laura a.active-nav-box:hover,
-body.project-list-page .nav-laura .nav-links-laura a.active-nav-box:hover {
+body.project-detail-page:not(.dark-theme) .nav-laura .nav-links-laura a.active-nav-box:hover,
+body.project-list-page:not(.dark-theme) .nav-laura .nav-links-laura a.active-nav-box:hover {
   background: rgba(0, 0, 0, 0.06) !important;
   border-color: #000000 !important;
 }
@@ -2170,3 +2203,336 @@ body.project-list-page .nav-laura .nav-links-laura a.active-nav-box:hover {
 }
 
 
+
+
+/* ========================================================
+   TEMPORARY DARK MODE TESTING STYLES
+   ======================================================== */
+
+body.dark-theme {
+  background-color: #010101 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme::-webkit-scrollbar-track {
+  background: #010101;
+}
+
+body.dark-theme::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Base sections background overrides */
+body.dark-theme .services-section,
+body.dark-theme .welcome-section,
+body.dark-theme .what-i-do-section,
+body.dark-theme .contact-section,
+body.dark-theme .footer-section {
+  background: transparent !important;
+}
+
+body.dark-theme .partners-section {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  --logoloop-fadeColorAuto: #010101 !important;
+}
+
+body.dark-theme .logoloop__item span {
+  color: #ffffff !important;
+}
+
+body.dark-theme .logoloop__link {
+  color: #ffffff !important;
+}
+
+body.dark-theme .logoloop__link:hover {
+  color: #ffffff !important;
+}
+
+body.dark-theme .scribble-text-main {
+  fill: #ffffff !important;
+}
+
+body.dark-theme .scribble-text-sub {
+  fill: #a3a3a3 !important;
+}
+
+body.dark-theme .fido-stroke {
+  stroke: #ffffff !important;
+}
+
+body.dark-theme .services-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .what-i-do-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Titles and headings styling overrides */
+body.dark-theme .services-title,
+body.dark-theme .partners-title,
+body.dark-theme .welcome-subtitle,
+body.dark-theme .welcome-heading,
+body.dark-theme .what-i-do-title,
+body.dark-theme .what-i-do-sidebar,
+body.dark-theme .what-i-do-category h3 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .welcome-subtitle::before,
+body.dark-theme .welcome-subtitle::after,
+body.dark-theme .what-i-do-title::before,
+body.dark-theme .what-i-do-title::after {
+  background-color: #ffffff !important;
+}
+
+/* Text and body color updates */
+body.dark-theme .welcome-body p,
+body.dark-theme .what-i-do-category p,
+body.dark-theme .services-link,
+body.dark-theme .project-serial {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .services-link {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-theme .services-link:hover {
+  color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Selected Portfolio Cards minimal style override */
+body.dark-theme .project-title-minimal {
+  color: #ffffff !important;
+}
+
+/* Custom tag buttons */
+body.dark-theme .tag {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .tag:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Resume download button */
+body.dark-theme .resume-btn {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .resume-btn:hover {
+  color: #010101 !important;
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Navigation bar scrolled state in dark mode */
+body.dark-theme .nav-laura.scrolled {
+  background: rgba(1, 1, 1, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .nav-laura.scrolled .logo-laura {
+  color: #ffffff !important;
+}
+
+body.dark-theme .nav-laura.scrolled .nav-links-laura a {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .nav-laura.scrolled .nav-links-laura a:hover {
+  color: #ffffff !important;
+}
+
+body.dark-theme .nav-laura.scrolled .nav-links-laura a.active-nav-box {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+body.dark-theme .nav-laura.scrolled .nav-links-laura a.active-nav-box:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #ffffff !important;
+}
+
+/* Navigation dropdown menu and items scrolled styling */
+body.dark-theme .nav-laura.scrolled .dropdown-trigger-btn {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark-theme .nav-laura.scrolled .dropdown-trigger-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .nav-laura.scrolled .dropdown-content-list {
+  background: rgba(1, 1, 1, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.dark-theme .nav-laura.scrolled .dropdown-link-item {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.dark-theme .nav-laura.scrolled .dropdown-link-item:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Navigation header overrides specifically for detail and list pages */
+body.dark-theme.project-detail-page .nav-laura,
+body.dark-theme.project-list-page .nav-laura {
+  background: rgba(1, 1, 1, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme.project-detail-page .nav-laura .logo-laura,
+body.dark-theme.project-list-page .nav-laura .logo-laura {
+  color: #ffffff !important;
+}
+
+body.dark-theme.project-detail-page .nav-laura .nav-links-laura a,
+body.dark-theme.project-list-page .nav-laura .nav-links-laura a {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme.project-detail-page .nav-laura .nav-links-laura a:hover,
+body.dark-theme.project-list-page .nav-laura .nav-links-laura a:hover {
+  color: #ffffff !important;
+}
+
+body.dark-theme.project-detail-page .nav-laura .nav-links-laura a.active-nav-box,
+body.dark-theme.project-list-page .nav-laura .nav-links-laura a.active-nav-box {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+body.dark-theme.project-detail-page .nav-laura .nav-links-laura a.active-nav-box:hover,
+body.dark-theme.project-list-page .nav-laura .nav-links-laura a.active-nav-box:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #ffffff !important;
+}
+
+/* ==================== PROJECTS LIST PAGE OVERRIDES (projects.html) ==================== */
+body.dark-theme .projects-hero h1 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .projects-hero p {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .filter-btn {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .filter-btn:hover,
+body.dark-theme .filter-btn.active {
+  background: #ffffff !important;
+  color: #010101 !important;
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .project-media-wrapper {
+  border: none !important;
+}
+
+body.dark-theme .project-meta-left {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .project-meta-title {
+  color: #ffffff !important;
+}
+
+body.dark-theme .project-meta-category {
+  color: #737373 !important;
+}
+
+/* Placeholder for missing image */
+body.dark-theme .no-image-placeholder {
+  background: #0d0d0d !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .no-image-text {
+  color: #555555 !important;
+}
+
+/* ==================== PROJECT DETAIL PAGE OVERRIDES (project.html) ==================== */
+body.dark-theme .back-to-portfolio {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .back-to-portfolio:hover {
+  color: #ffffff !important;
+}
+
+body.dark-theme .project-content-col h1 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .project-title-tag {
+  color: var(--accent-color) !important;
+}
+
+body.dark-theme .meta-item {
+  color: #a3a3a3 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .meta-item strong {
+  color: #ffffff !important;
+}
+
+body.dark-theme .project-description-text {
+  color: #a3a3a3 !important;
+}
+
+body.dark-theme .project-action-button {
+  background: #ffffff !important;
+  color: #010101 !important;
+  border-color: #ffffff !important;
+}
+
+body.dark-theme .project-action-button:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+body.dark-theme .project-nav-divider {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .nav-project-btn span.nav-dir {
+  color: #737373 !important;
+}
+
+body.dark-theme .nav-project-btn span.nav-title {
+  color: #ffffff !important;
+}
+
+body.dark-theme .nav-project-btn:hover span.nav-dir,
+body.dark-theme .nav-project-btn:hover span.nav-title {
+  color: var(--accent-color) !important;
+}
