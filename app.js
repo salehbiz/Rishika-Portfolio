@@ -449,4 +449,140 @@
       dropdownMenu.classList.remove('active');
     });
   }
+
+  // ===================== DYNAMIC TEMPORARY DARK MODE TOGGLE =====================
+  function initDarkModeToggle() {
+    if (document.body.classList.contains('project-detail-page')) {
+      document.body.classList.remove('dark-theme');
+      return;
+    }
+
+    if (!document.body.classList.contains('project-detail-page')) {
+      document.body.classList.add('dark-theme');
+      return;
+    }
+
+    const toggleContainer = document.createElement('div');
+    toggleContainer.className = 'theme-toggle-container';
+    
+    const style = document.createElement('style');
+    style.textContent = `
+      .theme-toggle-container {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 9990; /* below custom cursor */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .theme-toggle-btn {
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: #1a1a1a;
+        padding: 0;
+        outline: none;
+      }
+      body.dark-theme .theme-toggle-btn {
+        background: rgba(10, 10, 10, 0.45);
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        color: #ffffff;
+      }
+      .theme-toggle-btn:hover {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+      }
+      body.dark-theme .theme-toggle-btn:hover {
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      }
+      .theme-toggle-btn svg {
+        width: 1.35rem;
+        height: 1.35rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.25;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .theme-toggle-btn:hover svg {
+        transform: rotate(20deg);
+      }
+      @media (max-width: 768px) {
+        .theme-toggle-container {
+          bottom: 1.5rem;
+          right: 1.5rem;
+        }
+        .theme-toggle-btn {
+          width: 2.75rem;
+          height: 2.75rem;
+        }
+        .theme-toggle-btn svg {
+          width: 1.15rem;
+          height: 1.15rem;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    const btn = document.createElement('button');
+    btn.className = 'theme-toggle-btn';
+    btn.setAttribute('aria-label', 'Toggle Theme');
+
+    const sunIcon = `
+      <svg class="sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="M4.93 4.93l1.41 1.41"></path>
+        <path d="M17.66 17.66l1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="M6.34 17.66l-1.41 1.41"></path>
+        <path d="M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+    `;
+
+    const moonIcon = `
+      <svg class="moon" viewBox="0 0 24 24">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+      </svg>
+    `;
+
+    btn.innerHTML = document.body.classList.contains('dark-theme') ? sunIcon : moonIcon;
+
+    btn.addEventListener('click', () => {
+      const isCurrentlyDark = document.body.classList.toggle('dark-theme');
+      if (isCurrentlyDark) {
+        localStorage.setItem('rishika-portfolio-theme', 'dark');
+        btn.innerHTML = sunIcon;
+      } else {
+        localStorage.setItem('rishika-portfolio-theme', 'light');
+        btn.innerHTML = moonIcon;
+      }
+    });
+
+    toggleContainer.appendChild(btn);
+    document.body.appendChild(toggleContainer);
+  }
+
+  // Initialize immediately or on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDarkModeToggle);
+  } else {
+    initDarkModeToggle();
+  }
 })();
+
