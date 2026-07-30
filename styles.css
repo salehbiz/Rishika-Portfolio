@@ -1204,7 +1204,7 @@ nav .social svg {
   align-items: center;
   justify-content: flex-start;
   padding-left: 0; /* Align edge-to-edge for full width */
-  transform: translateY(-20px); /* Positioned slightly lower than before */
+  transform: translateY(20px); /* Positioned just below the nose */
   mix-blend-mode: difference; /* Apply color inversion blend mode here so all children blend with the background of #about */
 }
 
@@ -1458,7 +1458,7 @@ nav .social svg {
   
   .hero-middle-content {
     padding-left: 0;
-    transform: translateY(-10px); /* Slightly lower on mobile */
+    transform: translateY(10px); /* Positioned just below the nose on mobile */
   }
   
   .laura-hero-title-container {
