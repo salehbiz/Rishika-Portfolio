@@ -70,31 +70,33 @@ const projectsData = [
     "gallery": [
       {
         "image": "portfolio/rogers-fido-chatr/Image (1).jpg",
-        "caption": "Brand System & Guideline Compliance"
+        "caption": "Brand System & Guideline Compliance",
+        "aspect": "portrait"
       },
       {
         "image": "portfolio/rogers-fido-chatr/Image (2).jpg",
-        "caption": "Airport Lounges & Arrivals Kiosk Displays"
+        "caption": "Airport Lounges & Arrivals Kiosk Displays",
+        "aspect": "landscape"
       },
       {
         "image": "portfolio/rogers-fido-chatr/Image (3).jpg",
-        "caption": "Mall Billboards & Spectacular Layouts"
+        "caption": "Mall Billboards & Spectacular Layouts",
+        "aspect": "landscape"
       },
       {
         "image": "portfolio/rogers-fido-chatr/Fido POE.jpeg",
-        "caption": "Fido Store Branding, Rebranding & Refresh"
+        "caption": "Fido Store Branding, Rebranding & Refresh",
+        "aspect": "landscape"
       },
       {
         "image": "portfolio/rogers-fido-chatr/Rogers POE.jpeg",
-        "caption": "Rogers Preferred Program Employee Layouts"
+        "caption": "Rogers Preferred Program Employee Layouts",
+        "aspect": "landscape"
       },
       {
         "image": "portfolio/rogers-fido-chatr/WhatsApp Image 2026-07-16 at 11.24.18 AM-3.jpeg",
-        "caption": "Social Media Campaigns & Digital Ads"
-      },
-      {
-        "video": "portfolio/rogers-fido-chatr/MicrosoftTeams-video.mp4",
-        "caption": "Corporate Pitch Presentation & Guidelines Reveal"
+        "caption": "Social Media Campaigns & Digital Ads",
+        "aspect": "square"
       }
     ]
   },
