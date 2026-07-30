@@ -1174,7 +1174,7 @@ nav .social svg {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 6rem 3.5rem 4rem;
+  padding: 6rem 0 4rem; /* Full-width layout (0 horizontal padding) */
   z-index: 5;
   will-change: opacity;
 }
@@ -1203,8 +1203,8 @@ nav .social svg {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 2rem;
-  transform: translateY(-60px); /* Shift name text up on desktop to cover the face */
+  padding-left: 0; /* Align edge-to-edge for full width */
+  transform: translateY(-20px); /* Positioned slightly lower than before */
   mix-blend-mode: difference; /* Apply color inversion blend mode here so all children blend with the background of #about */
 }
 
@@ -1451,14 +1451,14 @@ nav .social svg {
   }
   
   #about {
-    padding: 6rem 1.5rem 3rem;
+    padding: 6rem 0 3rem; /* Full-width mobile layout (0 horizontal padding) */
     background-size: cover;
     background-position: center 15%;
   }
   
   .hero-middle-content {
-    padding-left: 0.5rem;
-    transform: translateY(-30px); /* Shift name text up slightly on mobile */
+    padding-left: 0;
+    transform: translateY(-10px); /* Slightly lower on mobile */
   }
   
   .laura-hero-title-container {
