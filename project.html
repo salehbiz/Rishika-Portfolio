@@ -317,6 +317,28 @@
     .scrollable-preview-container::-webkit-scrollbar-thumb:hover {
       background: rgba(0, 0, 0, 0.25);
     }
+    /* Rogers project mockups & 3D perspective gallery custom styles */
+    .perspective-track-outer {
+      scrollbar-width: none;
+    }
+    .perspective-track-outer::-webkit-scrollbar {
+      display: none;
+    }
+    .voyager-card {
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .voyager-card:hover {
+      transform: rotateY(0deg) scale(1.08) translateZ(40px) !important;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+      z-index: 10;
+    }
+    .mobile-mockup-frame {
+      transition: transform 0.3s ease;
+    }
+    .mobile-mockup-frame:hover {
+      transform: translateY(-5px);
+    }
   </style>
 </head>
 <body class="project-detail-page">
@@ -384,6 +406,38 @@
       document.head.appendChild(dbScript);
 
       function initPage() {
+        function initRogersScrollPerspective() {
+          const trackOuter = document.querySelector('.perspective-track-outer');
+          const cards = document.querySelectorAll('.voyager-card');
+          if (!trackOuter || cards.length === 0) return;
+
+          const updateRotations = () => {
+            const rectOuter = trackOuter.getBoundingClientRect();
+            const centerX = rectOuter.left + rectOuter.width / 2;
+
+            cards.forEach(card => {
+              const rectCard = card.getBoundingClientRect();
+              const cardCenterX = rectCard.left + rectCard.width / 2;
+              const distanceFromCenter = cardCenterX - centerX;
+              const maxDistance = rectOuter.width / 2;
+
+              let ratio = distanceFromCenter / maxDistance;
+              ratio = Math.max(-1, Math.min(1, ratio));
+
+              const rotateY = ratio * -20; // 20 deg max angle
+              const translateZ = Math.abs(ratio) * -60; // shift back slightly
+
+              if (!card.matches(':hover')) {
+                card.style.transform = `rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+              }
+            });
+          };
+
+          trackOuter.addEventListener('scroll', updateRotations);
+          window.addEventListener('resize', updateRotations);
+          setTimeout(updateRotations, 100);
+        }
+
         // Get Project ID from Query URL
         const urlParams = new URLSearchParams(window.location.search);
         const projectId = urlParams.get('id');
@@ -605,28 +659,41 @@
               </div>
             </div>
           `;
-        } else if (project.layout === 'vertical-sections') {
-          // Rogers, Fido, Chatr: vertical stacks with descriptions below image
+        } else if (project.layout === 'rogers-layout') {
+          // Voyager2 inspired 3D Perspective Card Gallery in light mode
           galleryHTML = `
-            <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
-              <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; margin-bottom: 4rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Case Study Breakdown</h2>
-              <div style="display: flex; flex-direction: column; gap: 5rem; max-width: 1000px; margin: 0 auto;">
-                ${project.sections.map((sec, idx) => `
-                  <div style="border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 4rem;">
-                    <h3 style="font-family:'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing:0.1em; color:#1a1a1a; text-transform: uppercase; margin-bottom: 1rem;">${sec.title}</h3>
-                    <p style="font-family:'Inter', sans-serif; font-size:0.95rem; line-height:1.7; color:#555555; margin-bottom:2rem; max-width: 800px;">${sec.description}</p>
-                    <div style="border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.06); background:#fafafa; width: 100%;">
-                      ${sec.fileType === 'video' ? `
-                        <video controls autoplay muted playsinline loop style="width: 100%; display: block;">
-                          <source src="${sec.video}" type="video/mp4">
-                          Your browser does not support the video tag.
-                        </video>
-                      ` : `
-                        <img src="${sec.image}" alt="${sec.title}" style="width: 100%; height: auto; display: block;">
-                      `}
-                    </div>
-                  </div>
-                `).join('')}
+            <div class="voyager-gallery-section" style="background: #ffffff; padding: 6rem 0 2rem; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-sizing: border-box; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06);">
+              <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; box-sizing: border-box; margin-bottom: 3.5rem; text-align: center;">
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.75rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.02em;">Selected Campaign Assets</h2>
+                <p style="font-family: 'Inter', sans-serif; font-size: 1.05rem; color: #666666; max-width: 600px; margin: 0 auto; line-height: 1.5;">Swipe or scroll horizontally to explore the creative compliance sheets, retail designs, OOH spectaculars, and campaign media.</p>
+              </div>
+              
+              <div class="perspective-track-outer" style="width: 100%; overflow-x: auto; padding: 3rem 0; -webkit-overflow-scrolling: touch; display: flex; justify-content: flex-start;">
+                <div class="perspective-track" style="display: flex; gap: 2.5rem; padding: 0 calc(50vw - 160px); perspective: 1500px; transform-style: preserve-3d;">
+                  ${project.gallery.map((item, idx) => {
+                    const isVideo = !!item.video;
+                    return `
+                      <div class="voyager-card" style="position: relative; width: 300px; height: 420px; border-radius: 24px; overflow: hidden; background: #ffffff; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 30px rgba(0,0,0,0.04); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; flex-shrink: 0; transform-style: preserve-3d; transform-origin: center center;">
+                        <div style="width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 24px;">
+                          ${isVideo ? `
+                            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                              <source src="${item.video}" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                          ` : `
+                            <img src="${item.image}" alt="${item.caption}" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy">
+                          `}
+                          <!-- Dark Gradient Overlay for text readability on cards -->
+                          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%); z-index: 2;"></div>
+                          <!-- Overlaid caption -->
+                          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; z-index: 3; box-sizing: border-box; text-align: left;">
+                            <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 500; color: #ffffff; line-height: 1.3; text-transform: none; text-shadow: 0 1px 3px rgba(0,0,0,0.2);">${item.caption}</p>
+                          </div>
+                        </div>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
               </div>
             </div>
           `;
@@ -752,7 +819,90 @@
         }
 
         // Populate layout HTML
-        if (project.liveUrl) {
+        if (project.layout === 'rogers-layout') {
+          container.innerHTML = `
+            <a href="index.html#what-we-do" class="back-to-portfolio">
+              <svg style="width: 14px; height: 14px; transform: rotate(180deg); display: inline-block; vertical-align: middle;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              Back to Portfolio
+            </a>
+
+            <!-- Title Header on Top -->
+            <div class="project-top-header" style="margin-bottom: 3.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding-top: 2rem;">
+              <span class="project-title-tag" style="margin-bottom: 0.75rem; letter-spacing: 0.15em;">${project.categoryLabel}</span>
+              <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.02em; line-height: 1.1;">${project.title}</h1>
+              <p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; color: #555555; max-width: 600px; margin: 0 auto; line-height: 1.6;">${project.tagline}</p>
+            </div>
+
+            <!-- Two Portrait Video Mockups -->
+            <div class="video-mockups-container" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 5rem; flex-wrap: wrap;">
+              <!-- Mockup 1: Creatify Video -->
+              <div class="mobile-mockup-frame" style="width: 290px; height: 580px; border: 10px solid #1a1a1a; border-radius: 32px; background: #000; box-shadow: 0 20px 40px rgba(0,0,0,0.08); position: relative; overflow: hidden; box-sizing: border-box;">
+                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 110px; height: 18px; background: #1a1a1a; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; z-index: 10;"></div>
+                <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; padding-top: 10px; box-sizing: border-box;">
+                  <source src="portfolio/rogers-fido-chatr/Video Gen-4488-0.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <!-- Mockup 2: Seedance Video -->
+              <div class="mobile-mockup-frame" style="width: 290px; height: 580px; border: 10px solid #1a1a1a; border-radius: 32px; background: #000; box-shadow: 0 20px 40px rgba(0,0,0,0.08); position: relative; overflow: hidden; box-sizing: border-box;">
+                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 110px; height: 18px; background: #1a1a1a; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; z-index: 10;"></div>
+                <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; padding-top: 10px; box-sizing: border-box;">
+                  <source src="portfolio/rogers-fido-chatr/seedance2_Video_20260610_152322.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <!-- Bottom Detailed Information Columns -->
+            <div class="project-bottom-details" style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 5rem; margin-top: 5rem; max-width: 800px; margin-left: auto; margin-right: auto; box-sizing: border-box; padding-left: 1.5rem; padding-right: 1.5rem;">
+              
+              <!-- Case Study Credits (Clean Grid Inside the Flow) -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 4rem; background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); padding: 2rem; border-radius: 12px; box-sizing: border-box;">
+                <div>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Client</strong>
+                  <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">${project.client}</span>
+                </div>
+                <div>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Company</strong>
+                  <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">${project.company}</span>
+                </div>
+                <div>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Project</strong>
+                  <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">${project.scope}</span>
+                </div>
+                <div>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Role & Deliverables</strong>
+                  <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">${project.roleBreakdown}</span>
+                </div>
+              </div>
+
+              <!-- Detailed Case Study Narrative -->
+              <div class="project-description-text" style="font-family:'Inter', sans-serif; font-size:1.05rem; line-height:1.8; color:#444444; text-align: left; margin-bottom: 4rem;">
+                <h2 style="font-family:'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Overview</h2>
+                <p style="margin-top: 0; margin-bottom: 1.5rem;">${project.description}</p>
+              </div>
+            </div>
+
+            <!-- Voyager2 Inspired 3D Gallery -->
+            ${galleryHTML}
+
+            <hr class="project-nav-divider">
+
+            <div class="project-navigation-footer">
+              <a href="project.html?id=${prevProject.id}" class="nav-project-btn prev">
+                <span class="nav-dir">&larr; Previous Project</span>
+                <span class="nav-title">${prevProject.title}</span>
+              </a>
+              <a href="project.html?id=${nextProject.id}" class="nav-project-btn next">
+                <span class="nav-dir">Next Project &rarr;</span>
+                <span class="nav-title">${nextProject.title}</span>
+              </a>
+            </div>
+          `;
+          
+          // Initialize scroll perspective script
+          initRogersScrollPerspective();
+        } else if (project.liveUrl) {
           container.innerHTML = `
             <a href="index.html#what-we-do" class="back-to-portfolio">
               <svg style="width: 14px; height: 14px; transform: rotate(180deg); display: inline-block; vertical-align: middle;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>

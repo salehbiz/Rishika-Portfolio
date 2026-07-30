@@ -22,10 +22,11 @@ This document tracks the step-by-step updates for the portfolio redesign based o
   - [x] Remove or transparency-override `.hero-dot` dot separators in name marquee within `about.html` and `index.html`.
   - [x] Remove any other yellow circle dividers from the layouts.
 
-- [ ] **Task 3: Rogers Project Restructuring**
-  - [ ] Update `projects-data.js` for the Rogers project (`id: "rogers-fido-chatr"`) to standardize layout content (brand system details, project description, role breakdown).
-  - [ ] Embed the three AI-generated campaign videos in CSS mobile mockups.
-  - [ ] Ensure proper resizing and responsive displays of these videos.
+- [x] **Task 3: Rogers Project Restructuring**
+  - [x] Update `projects-data.js` for the Rogers project (`id: "rogers-fido-chatr"`) to standardize layout content (brand system details, project description, role breakdown).
+  - [x] Embed the two portrait campaign videos in CSS mobile mockups.
+  - [x] Ensure proper resizing and responsive displays of these videos.
+  - [x] Implement Voyager2-style 3D-perspective scrolling card gallery in light mode for the rest of the project images.
 
 - [ ] **Task 4: Airtel Black Email Campaign Layout**
   - [ ] Update `projects-data.js` for Airtel Black (`id: "airtel-black"`) to use a scrolling mobile mockup layout.

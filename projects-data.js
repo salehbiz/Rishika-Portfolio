@@ -64,62 +64,37 @@ const projectsData = [
     "fileLink": "portfolio/rogers-fido-chatr/rogers_main.png",
     "fileType": "image",
     "fileLabel": "View Asset",
-    "layout": "vertical-sections",
-    "sections": [
+    "layout": "rogers-layout",
+    "tagline": "One brand system, three brands, everywhere from airport kiosks to Instagram feeds.",
+    "roleBreakdown": "Art Director, Brand Guideline Management",
+    "gallery": [
       {
-        "title": "CONTEXT",
-        "description": "Wireless DNA Inc. is an authorized dealer of Rogers, Fido, and Chatr, with 82+ locations across Canada, including airport locations at Toronto Pearson, Calgary, and Winnipeg.",
-        "image": "portfolio/rogers-fido-chatr/rogers_main.png"
+        "image": "portfolio/rogers-fido-chatr/Image (1).jpg",
+        "caption": "Brand System & Guideline Compliance"
       },
       {
-        "title": "GUIDELINES",
-        "description": "Maintained brand guidelines across Rogers, Fido, and Chatr, designing creative that stayed compliant across all three.",
-        "image": "portfolio/rogers-fido-chatr/Image (2).jpg"
+        "image": "portfolio/rogers-fido-chatr/Image (2).jpg",
+        "caption": "Airport Lounges & Arrivals Kiosk Displays"
       },
       {
-        "title": "AI VIDEO GENERATION",
-        "description": "Produced ad-ready video content using Creatify AI, and animated static creative into motion pieces.",
-        "video": "portfolio/rogers-fido-chatr/Video Gen-4488-0.mp4",
-        "fileType": "video"
+        "image": "portfolio/rogers-fido-chatr/Image (3).jpg",
+        "caption": "Mall Billboards & Spectacular Layouts"
       },
       {
-        "title": "OUTDOOR & DIGITAL",
-        "description": "Designed creative for outdoor screens and spectaculars, social media campaigns, and Meta ads across all three brands.",
-        "image": "portfolio/rogers-fido-chatr/Image (3).jpg"
+        "image": "portfolio/rogers-fido-chatr/Fido POE.jpeg",
+        "caption": "Fido Store Branding, Rebranding & Refresh"
       },
       {
-        "title": "FIDO STORE POE",
-        "description": "Designed store branding applied whenever a Fido location underwent rebranding or refresh.",
-        "image": "portfolio/rogers-fido-chatr/Fido POE.jpeg"
+        "image": "portfolio/rogers-fido-chatr/Rogers POE.jpeg",
+        "caption": "Rogers Preferred Program Employee Layouts"
       },
       {
-        "title": "ROGERS STORE POE",
-        "description": "Designed kiosk branding for airport locations, plus Rogers Preferred Program (RPP) flyers for airport employees.",
-        "image": "portfolio/rogers-fido-chatr/Rogers POE.jpeg"
+        "image": "portfolio/rogers-fido-chatr/WhatsApp Image 2026-07-16 at 11.24.18 AM-3.jpeg",
+        "caption": "Social Media Campaigns & Digital Ads"
       },
       {
-        "title": "TEAMS PRESENTATION",
-        "description": "A motion mockup and creative reveal designed for corporate presentation and pitch guidelines.",
         "video": "portfolio/rogers-fido-chatr/MicrosoftTeams-video.mp4",
-        "fileType": "video"
-      },
-      {
-        "title": "CREATIVE CAMPAIGN CLIP 1",
-        "description": "Social media motion creative outlining customized pre-arrival cellular activation programs.",
-        "video": "portfolio/rogers-fido-chatr/WhatsApp Video 2026-07-14 at 4.44.00 PM.mp4",
-        "fileType": "video"
-      },
-      {
-        "title": "CREATIVE CAMPAIGN CLIP 2",
-        "description": "Promotional mobile sequence highlight highlighting premium plans and localized rewards.",
-        "video": "portfolio/rogers-fido-chatr/WhatsApp Video 2026-07-14 at 4.46.54 PM.mp4",
-        "fileType": "video"
-      },
-      {
-        "title": "CREATIVE CAMPAIGN CLIP 3",
-        "description": "Branding story reveal outlining easy setup and sim card delivery benefits.",
-        "video": "portfolio/rogers-fido-chatr/WhatsApp Video 2026-07-14 at 4.46.54 PM-2.mp4",
-        "fileType": "video"
+        "caption": "Corporate Pitch Presentation & Guidelines Reveal"
       }
     ]
   },
