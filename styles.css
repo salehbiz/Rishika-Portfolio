@@ -1227,6 +1227,7 @@ nav .social svg {
   z-index: 2;
   display: flex;
   align-items: center;
+  mix-blend-mode: difference; /* Invert color blend mode active at all times on container level */
 }
 
 .marquee-name-track {
@@ -1255,7 +1256,6 @@ nav .social svg {
   color: #ffffff;
   letter-spacing: -0.03em;
   line-height: 1;
-  mix-blend-mode: difference; /* Invert color blend mode active at all times */
 }
 
 @keyframes marquee-right {
@@ -2239,6 +2239,9 @@ body.dark-theme .partners-section {
   background: transparent !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-theme .logoloop {
   --logoloop-fadeColorAuto: #010101 !important;
 }
 
