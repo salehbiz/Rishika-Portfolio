@@ -8,13 +8,14 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Prepaid Website Redesign, UX & Web Design",
     "description": "CanadianSIM provides Canadian phone numbers and SIM plans to newcomers, international students, and travellers before they even land in the country. One website originally served both prepaid and postpaid users, and its lengthy checkout was quietly costing the business, prepaid buyers, mostly short-term tourist visitors and visa holders, were dropping off before completing their order. Tested a simplified Shopify Quick Checkout for prepaid users first, and once it proved out in real orders, led a full redesign of the prepaid site around that same logic. Conversion rate nearly doubled as a result.",
-    "image": "portfolio/canadiansim/canadiansim_esim_ad.jpg",
-    "fileLink": "portfolio/canadiansim/canadiansim_esim_ad.jpg",
+    "image": "portfolio/canadiansim/canadiansim_new.png",
+    "fileLink": "portfolio/canadiansim/canadiansim_new.png",
+    "liveUrl": "https://prepaid.canadiansim.com/",
     "fileType": "image",
     "fileLabel": "View Asset",
     "layout": "web-layout",
     "featuredImages": [
-      "portfolio/canadiansim/canadiansim_esim_ad.jpg"
+      "portfolio/canadiansim/canadiansim_new.png"
     ],
     "archiveImages": [],
     "performanceTable": [
@@ -32,14 +33,14 @@ const projectsData = [
       },
       {
         "metric": "Average order value",
-        "before": "$64.49",
-        "after": "$70.74",
+        "before": "$44.49",
+        "after": "$48.74",
         "change": "+9.6%"
       },
       {
         "metric": "Revenue per day",
-        "before": "$3,653",
-        "after": "$4,763",
+        "before": "$2,653",
+        "after": "$3,463",
         "change": "+30.5%"
       },
       {
@@ -59,8 +60,8 @@ const projectsData = [
     "categoryLabel": "Retail & OOH",
     "scope": "Multi-Brand Creative, Retail & Airport",
     "description": "Maintain brand guidelines and design creative compliance across Rogers, Fido, and Chatr. Key executions include airport lounge and arrivals kiosk displays, mall billboards, spectacular layouts, store branding, and AI-assisted motion video content.",
-    "image": "portfolio/rogers-fido-chatr/Image (1)_opt.jpg",
-    "fileLink": "portfolio/rogers-fido-chatr/Image (1)_opt.jpg",
+    "image": "portfolio/rogers-fido-chatr/rogers_main.png",
+    "fileLink": "portfolio/rogers-fido-chatr/rogers_main.png",
     "fileType": "image",
     "fileLabel": "View Asset",
     "layout": "vertical-sections",
@@ -68,7 +69,7 @@ const projectsData = [
       {
         "title": "CONTEXT",
         "description": "Wireless DNA Inc. is an authorized dealer of Rogers, Fido, and Chatr, with 82+ locations across Canada, including airport locations at Toronto Pearson, Calgary, and Winnipeg.",
-        "image": "portfolio/rogers-fido-chatr/Image (1)_opt.jpg"
+        "image": "portfolio/rogers-fido-chatr/rogers_main.png"
       },
       {
         "title": "GUIDELINES",
@@ -227,57 +228,6 @@ const projectsData = [
     "archiveImages": []
   },
   {
-    "id": "dailyhunt",
-    "title": "Dailyhunt Identity Reimagined",
-    "client": "Dailyhunt (News Aggregator App)",
-    "category": "branding",
-    "categoryLabel": "Brand Identity",
-    "scope": "Logo design construct, brand guidelines, color theory, & brand books.",
-    "description": "A complete reimagining of the visual identity for Dailyhunt, India's premier news aggregator. The branding strategy details a spiral construct merged into the letter 'd', conveying the ever-evolving nature of modern journalism, instant information flow, and growth.",
-    "image": "portfolio/dailyhunt/slide_1.png",
-    "fileLink": "portfolio/brand-identity/dailyhunt_brand identity.pdf",
-    "fileType": "pdf",
-    "fileLabel": "View Brand Book",
-    "featuredImages": [
-      "portfolio/dailyhunt/slide_1.png",
-      "portfolio/dailyhunt/slide_2.png",
-      "portfolio/dailyhunt/slide_3.png",
-      "portfolio/dailyhunt/slide_4.png",
-      "portfolio/dailyhunt/slide_5.png",
-      "portfolio/dailyhunt/slide_6.png",
-      "portfolio/dailyhunt/slide_7.png",
-      "portfolio/dailyhunt/slide_8.png"
-    ],
-    "archiveImages": [
-      "portfolio/dailyhunt/slide_9.png",
-      "portfolio/dailyhunt/slide_10.png",
-      "portfolio/dailyhunt/slide_11.png",
-      "portfolio/dailyhunt/slide_12.png",
-      "portfolio/dailyhunt/slide_13.png",
-      "portfolio/dailyhunt/slide_14.png",
-      "portfolio/dailyhunt/slide_15.png",
-      "portfolio/dailyhunt/slide_16.png",
-      "portfolio/dailyhunt/slide_17.png",
-      "portfolio/dailyhunt/slide_18.png",
-      "portfolio/dailyhunt/slide_19.png",
-      "portfolio/dailyhunt/slide_20.png",
-      "portfolio/dailyhunt/slide_21.png",
-      "portfolio/dailyhunt/slide_22.png",
-      "portfolio/dailyhunt/slide_23.png",
-      "portfolio/dailyhunt/slide_24.png",
-      "portfolio/dailyhunt/slide_25.png",
-      "portfolio/dailyhunt/slide_26.png",
-      "portfolio/dailyhunt/slide_27.png",
-      "portfolio/dailyhunt/slide_28.png",
-      "portfolio/dailyhunt/slide_29.png",
-      "portfolio/dailyhunt/slide_30.png",
-      "portfolio/dailyhunt/slide_31.png",
-      "portfolio/dailyhunt/slide_32.png",
-      "portfolio/dailyhunt/slide_33.png",
-      "portfolio/dailyhunt/slide_34.png"
-    ]
-  },
-  {
     "id": "houm",
     "title": "Houm Brand Book & Identity",
     "client": "Houm (houm.me)",
@@ -349,7 +299,7 @@ const projectsData = [
     "categoryLabel": "Packaging",
     "scope": "Organic structure design, custom labels, packaging board layouts.",
     "description": "A luxury packaging design proposal for Wagh Bakri's Gourmet Specialty tea line. Drawing structural inspiration from traditional hand-woven tea-plucking baskets, the packaging incorporates organic wood grain textures, pastel color accents, and personalized plucker storytelling cards on each box.",
-    "image": "portfolio/wagh-bakri/slide_1_opt.jpg",
+    "image": "portfolio/wagh-bakri/slide_5.png",
     "fileLink": "portfolio/packaging/WaghBakri_packaging_Boards .pdf",
     "fileType": "pdf",
     "fileLabel": "View Packaging Boards",
@@ -496,7 +446,7 @@ const projectsData = [
     "categoryLabel": "Brand Identity",
     "scope": "Traditional pattern incorporation, box wraps, labels, and visual identity guides.",
     "description": "Brand book showcasing ethnic fashion design concepts based on the traditional Indian hand block print art style of Kalamkari. Incorporates organic maroons and indigo motifs on premium gold-embossed clothing tags and textile boxes.",
-    "image": "portfolio/kalam-kari/kalamkari_cardboard_logo.jpg",
+    "image": "portfolio/kalam-kari/kalamkari_new.png",
     "fileLink": "portfolio/brand-identity/Kalam Kari .pdf",
     "fileType": "pdf",
     "fileLabel": "View Brand Book",
@@ -540,7 +490,7 @@ const projectsData = [
     "categoryLabel": "Video & Media",
     "scope": "Video editing, timeline cutting, transitions, and draft rendering.",
     "description": "An editing draft and post-production layout for a short film/video project titled 'Ankahee Ansunee' (translating to Unsaid, Unheard). Focuses on editing sequences, transitions, and audio-video timing overlays.",
-    "image": "portfolio/assets/ankahee_layout_opt.jpg",
+    "image": "portfolio/ankahee/ankahee_thumb.png",
     "fileLink": "portfolio/ankahee/Ankahee Ansunee_1stDraft.mp4",
     "fileType": "video",
     "fileLabel": "Play Video",
