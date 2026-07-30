@@ -424,8 +424,8 @@
               let ratio = distanceFromCenter / maxDistance;
               ratio = Math.max(-1, Math.min(1, ratio));
 
-              const rotateY = ratio * -20; // 20 deg max angle
-              const translateZ = Math.abs(ratio) * -60; // shift back slightly
+              const rotateY = ratio * -12; // 12 deg max angle
+              const translateZ = Math.abs(ratio) * -40; // shift back slightly
 
               if (!card.matches(':hover')) {
                 card.style.transform = `rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
@@ -663,13 +663,13 @@
           // Voyager2 inspired 3D Perspective Card Gallery in light mode
           galleryHTML = `
             <div class="voyager-gallery-section" style="background: #ffffff; padding: 6rem 0 2rem; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-sizing: border-box; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06);">
-              <div style="max-width: 1200px; margin: 0 auto; padding: 0 4rem; box-sizing: border-box; margin-bottom: 3.5rem; text-align: left;">
+              <div style="max-width: 1200px; margin: 0 auto; padding: 0 4rem; box-sizing: border-box; margin-bottom: 3.5rem; text-align: center;">
                 <h2 style="font-size: 2.75rem; font-weight: 700; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: -0.01em;">Selected Campaign Assets</h2>
-                <p style="font-size: 1.05rem; color: #666666; max-width: 600px; margin: 0; line-height: 1.5;">Swipe or scroll horizontally to explore the creative compliance sheets, retail designs, OOH spectaculars, and campaign media.</p>
+                <p style="font-size: 1.05rem; color: #666666; max-width: 600px; margin: 0 auto; line-height: 1.5;">Swipe or scroll horizontally to explore the creative compliance sheets, retail designs, OOH spectaculars, and campaign media.</p>
               </div>
               
               <div class="perspective-track-outer" style="width: 100%; overflow-x: auto; padding: 3rem 0; -webkit-overflow-scrolling: touch; display: flex; justify-content: flex-start;">
-                <div class="perspective-track" style="display: flex; gap: 2.5rem; padding: 0 4rem; perspective: 1500px; transform-style: preserve-3d;">
+                <div class="perspective-track" style="display: flex; gap: 4rem; padding: 0 4rem; perspective: 1500px; transform-style: preserve-3d;">
                   ${project.gallery.map((item, idx) => {
                     const isVideo = !!item.video;
                     const cardWidth = item.aspect === 'portrait' ? '360px' : (item.aspect === 'square' ? '460px' : '610px');
@@ -862,6 +862,9 @@
               </div>
             </div>
 
+            <!-- Voyager2 Inspired 3D Gallery -->
+            ${galleryHTML}
+
             <!-- Bottom Detailed Information Columns -->
             <div class="project-bottom-details" style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 5rem; margin-top: 5rem; max-width: 800px; margin-left: auto; margin-right: auto; box-sizing: border-box; padding-left: 1.5rem; padding-right: 1.5rem;">
               
@@ -891,9 +894,6 @@
                 <p style="margin-top: 0; margin-bottom: 1.5rem;">${project.description}</p>
               </div>
             </div>
-
-            <!-- Voyager2 Inspired 3D Gallery -->
-            ${galleryHTML}
 
             <hr class="project-nav-divider">
 
