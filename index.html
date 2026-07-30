@@ -49,7 +49,7 @@
       transition: opacity 0.3s ease !important;
       position: relative !important;
       top: auto !important;
-      width: calc((100% - 1rem) / 3) !important;
+      width: calc((100% - 0.5rem) / 2) !important;
     }
 
     .service-card:hover {
@@ -58,16 +58,16 @@
 
     .service-card-image-wrapper {
       width: 100% !important;
-      aspect-ratio: 1 / 1 !important;
+      aspect-ratio: 16 / 9 !important;
       border-radius: 0 !important;
       overflow: hidden !important;
       position: relative !important;
-      background: #ffffff !important;
-      border: 1px solid rgba(0, 0, 0, 0.04) !important;
+      background: transparent !important;
+      border: none !important;
     }
 
     .service-card-image-wrapper.no-image-placeholder {
-      aspect-ratio: 1 / 1 !important;
+      aspect-ratio: 16 / 9 !important;
       background: #f7f7f7 !important;
       display: flex !important;
       align-items: center !important;
@@ -181,7 +181,7 @@
         margin-bottom: 0 !important;
       }
       .service-card-image-wrapper {
-        aspect-ratio: 1 / 1 !important;
+        aspect-ratio: 16 / 9 !important;
       }
       .service-card-content {
         margin-top: 0 !important;
@@ -189,7 +189,7 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-theme">
 
 
 
@@ -279,9 +279,9 @@
     <!-- Sticky stacked cards deck wrapper -->
     <div class="services-cards-container">
       <!-- Card 1: CanadianSIM Website Redesign -->
-      <a href="project.html?id=canadiansim" class="service-card align-right width-35">
+      <a href="project.html?id=canadiansim" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/canadiansim/canadiansim_esim_ad.jpg" alt="CanadianSIM Web Redesign" loading="lazy">
+          <img src="portfolio/canadiansim/canadiansim_new.png" alt="CanadianSIM Web Redesign" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>001</span>
@@ -290,9 +290,9 @@
       </a>
 
       <!-- Card 2: Rogers, Fido, Chatr -->
-      <a href="project.html?id=rogers-fido-chatr" class="service-card align-left width-48">
+      <a href="project.html?id=rogers-fido-chatr" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/rogers-fido-chatr/Image (1)_opt.jpg" alt="Rogers, Fido, Chatr" loading="lazy">
+          <img src="portfolio/rogers-fido-chatr/rogers_main.png" alt="Rogers, Fido, Chatr" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>002</span>
@@ -301,7 +301,7 @@
       </a>
 
       <!-- Card 3: CanadianSIM Social Media -->
-      <a href="project.html?id=canadiansim-social" class="service-card align-right width-40">
+      <a href="project.html?id=canadiansim-social" class="service-card">
         <div class="service-card-image-wrapper">
           <img src="portfolio/canadiansim-social/homepage_thumb_opt.jpg" alt="CanadianSIM Social Media" loading="lazy">
         </div>
@@ -312,9 +312,9 @@
       </a>
 
       <!-- Card 4: Airtel Black Launch -->
-      <a href="project.html?id=airtel-black" class="service-card align-left width-32">
+      <a href="project.html?id=airtel-black" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/airtel-black/Untitled-3-01_opt.jpg" alt="Airtel Black Launch" loading="lazy">
+          <video src="portfolio/airtel-black/airtel_animated.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>004</span>
@@ -322,145 +322,134 @@
         </div>
       </a>
 
-      <!-- Card 5: Dailyhunt Brand Identity -->
-      <a href="project.html?id=dailyhunt" class="service-card align-right width-35">
+      <!-- Card 5: Houm Brand Book -->
+      <a href="project.html?id=houm" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/dailyhunt/slide_1.png" alt="Dailyhunt Identity" loading="lazy">
+          <img src="portfolio/houm/houm_new.png" alt="Houm Brand Book" loading="lazy">
         </div>
         <div class="service-card-content">
           <span class="project-serial"><span class="serial-dot"></span>005</span>
-          <h3 class="project-title-minimal">Dailyhunt Identity</h3>
-        </div>
-      </a>
-
-      <!-- Card 6: Houm Brand Book -->
-      <a href="project.html?id=houm" class="service-card align-left width-40">
-        <div class="service-card-image-wrapper">
-          <img src="portfolio/houm/slide_1_opt.jpg" alt="Houm Brand Book" loading="lazy">
-        </div>
-        <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>006</span>
           <h3 class="project-title-minimal">Houm Brand Book</h3>
         </div>
       </a>
 
-      <!-- Card 7: Wagh Bakri Tea Packaging -->
-      <a href="project.html?id=wagh-bakri" class="service-card align-right width-30">
+      <!-- Card 6: Wagh Bakri Tea Packaging -->
+      <a href="project.html?id=wagh-bakri" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/wagh-bakri/slide_1_opt.jpg" alt="Wagh Bakri Tea Packaging" loading="lazy">
+          <img src="portfolio/wagh-bakri/slide_5.png" alt="Wagh Bakri Tea Packaging" loading="lazy">
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>007</span>
+          <span class="project-serial"><span class="serial-dot"></span>006</span>
           <h3 class="project-title-minimal">Wagh Bakri Tea Packaging</h3>
         </div>
       </a>
 
-      <!-- Card 8: Sebamed Skin Care -->
-      <a href="project.html?id=sebamed" class="service-card align-left width-45">
+      <!-- Card 7: Sebamed Skin Care -->
+      <a href="project.html?id=sebamed" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/sebamed/warmup_dumbbell.jpg" alt="Sebamed Skin Care" loading="lazy">
+          <img src="portfolio/sebamed/sebamed_new.png" alt="Sebamed Skin Care" loading="lazy">
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>008</span>
+          <span class="project-serial"><span class="serial-dot"></span>007</span>
           <h3 class="project-title-minimal">Sebamed Skin Care</h3>
         </div>
       </a>
 
-      <!-- Card 9: Storia Mango Shake -->
-      <a href="project.html?id=storia" class="service-card align-right width-35">
+      <!-- Card 8: Storia Mango Shake -->
+      <a href="project.html?id=storia" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/storia/storia_mango_shake.jpg" alt="Storia Mango Shake" loading="lazy">
+          <video src="portfolio/storia/storia_animated.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>009</span>
+          <span class="project-serial"><span class="serial-dot"></span>008</span>
           <h3 class="project-title-minimal">Storia Mango Shake</h3>
         </div>
       </a>
 
-      <!-- Card 10: Scribble Construction -->
-      <a href="project.html?id=scribble" class="service-card align-left width-32">
+      <!-- Card 9: Scribble Construction -->
+      <a href="project.html?id=scribble" class="service-card">
         <div class="service-card-image-wrapper">
           <video src="portfolio/brand-identity/Scribble Construction /Sequence 03.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>010</span>
+          <span class="project-serial"><span class="serial-dot"></span>009</span>
           <h3 class="project-title-minimal">Scribble Construction</h3>
         </div>
       </a>
 
-      <!-- Card 11: Malabar Product Launch Ads -->
-      <a href="project.html?id=malabar" class="service-card align-right width-35">
+      <!-- Card 10: Malabar Product Launch Ads -->
+      <a href="project.html?id=malabar" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/malabar/malabar_bloom_ad.jpg" alt="Malabar Gold & Diamonds" loading="lazy">
+          <img src="portfolio/malabar/malabar_new.png" alt="Malabar Gold & Diamonds" loading="lazy">
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>011</span>
+          <span class="project-serial"><span class="serial-dot"></span>010</span>
           <h3 class="project-title-minimal">Malabar Gold & Diamonds</h3>
         </div>
       </a>
 
-      <!-- Card 12: Kalam Kari Fashion -->
-      <a href="project.html?id=kalam-kari" class="service-card align-left width-40">
+      <!-- Card 11: Kalam Kari Fashion -->
+      <a href="project.html?id=kalam-kari" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/kalam-kari/kalamkari_cardboard_logo.jpg" alt="Kalam Kari Fashion" loading="lazy">
+          <img src="portfolio/kalam-kari/kalamkari_new.png" alt="Kalam Kari Fashion" loading="lazy">
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>012</span>
+          <span class="project-serial"><span class="serial-dot"></span>011</span>
           <h3 class="project-title-minimal">Kalam Kari Fashion</h3>
         </div>
       </a>
 
-      <!-- Card 13: Radio City Ads -->
-      <a href="project.html?id=radio-city" class="service-card align-right width-30">
+      <!-- Card 12: Radio City Ads -->
+      <a href="project.html?id=radio-city" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/radio-city/radiocity_rofl_ad.jpg" alt="Radio City Ads" loading="lazy">
+          <video src="portfolio/radio-city/radiocity_animated.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>013</span>
+          <span class="project-serial"><span class="serial-dot"></span>012</span>
           <h3 class="project-title-minimal">Radio City Ads</h3>
         </div>
       </a>
 
-      <!-- Card 14: Ankahee Ansunee -->
-      <a href="project.html?id=ankahee" class="service-card align-left width-48">
+      <!-- Card 13: Ankahee Ansunee -->
+      <a href="project.html?id=ankahee" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/assets/ankahee_layout_opt.jpg" alt="Ankahee Ansunee" loading="lazy">
+          <img src="portfolio/ankahee/ankahee_thumb.png" alt="Ankahee Ansunee" loading="lazy">
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>014</span>
+          <span class="project-serial"><span class="serial-dot"></span>013</span>
           <h3 class="project-title-minimal">Ankahee Ansunee</h3>
         </div>
       </a>
 
-      <!-- Card 15: Life Sand Animation -->
-      <a href="project.html?id=life-sand" class="service-card align-right width-45">
+      <!-- Card 14: Life Sand Animation -->
+      <a href="project.html?id=life-sand" class="service-card">
         <div class="service-card-image-wrapper">
           <video src="portfolio/life-sand/Life_Sand Animation.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>015</span>
+          <span class="project-serial"><span class="serial-dot"></span>014</span>
           <h3 class="project-title-minimal">Life Sand Animation</h3>
         </div>
       </a>
 
-      <!-- Card 16: Apple Mother's Day Campaign -->
-      <a href="project.html?id=apple" class="service-card align-left width-32">
+      <!-- Card 15: Apple Mother's Day Campaign -->
+      <a href="project.html?id=apple" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/apple/Mother_s Day-06.jpg" alt="Apple Watch Mother's Day Campaign" loading="lazy">
+          <img src="portfolio/apple/apple_new.png" alt="Apple Watch Mother's Day Campaign" loading="lazy">
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>016</span>
+          <span class="project-serial"><span class="serial-dot"></span>015</span>
           <h3 class="project-title-minimal">India iStore (Apple Reseller)</h3>
         </div>
       </a>
 
-      <!-- Card 17: The Taj Mahal Hotel Print Ad -->
-      <a href="project.html?id=taj" class="service-card align-right width-48">
+      <!-- Card 16: The Taj Mahal Hotel Print Ad -->
+      <a href="project.html?id=taj" class="service-card">
         <div class="service-card-image-wrapper">
-          <img src="portfolio/taj/taj_mansingh_ad.jpg" alt="The Taj Mahal Hotel Print Ad" loading="lazy">
+          <video src="portfolio/taj/taj_animated.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="service-card-content">
-          <span class="project-serial"><span class="serial-dot"></span>017</span>
+          <span class="project-serial"><span class="serial-dot"></span>016</span>
           <h3 class="project-title-minimal">The Taj Mahal Hotel Ad</h3>
         </div>
       </a>
@@ -479,25 +468,6 @@
                 <text x="0" y="32" font-family="'Inter Tight', 'Outfit', sans-serif" font-size="36" font-weight="800" letter-spacing="-1.5px">
                   <tspan fill="#3b651d">seba</tspan><tspan fill="#d0175f">med</tspan>
                 </text>
-              </svg>
-            </a>
-          </li>
-          <li class="logoloop__item">
-            <a href="project.html?id=dailyhunt" class="logoloop__link">
-              <svg class="tech-icon" viewBox="0 0 210 50" xmlns="http://www.w3.org/2000/svg" style="width: 140px; height: 32px;">
-                <!-- Flower symbol on the left -->
-                <g transform="translate(25, 25) scale(0.42)">
-                  <!-- Top-Right: Green -->
-                  <path d="M 0,0 C -12,-15 -18,-30 0,-40 C 18,-30 12,-15 0,0 Z" transform="rotate(45) translate(0, -3)" fill="#76c148" />
-                  <!-- Bottom-Right: Blue -->
-                  <path d="M 0,0 C -12,-15 -18,-30 0,-40 C 18,-30 12,-15 0,0 Z" transform="rotate(135) translate(0, -3)" fill="#4aaed5" />
-                  <!-- Bottom-Left: Yellow -->
-                  <path d="M 0,0 C -12,-15 -18,-30 0,-40 C 18,-30 12,-15 0,0 Z" transform="rotate(225) translate(0, -3)" fill="#f0ad19" />
-                  <!-- Top-Left: Orange -->
-                  <path d="M 0,0 C -12,-15 -18,-30 0,-40 C 18,-30 12,-15 0,0 Z" transform="rotate(315) translate(0, -3)" fill="#db5424" />
-                </g>
-                <!-- Text on the right -->
-                <text x="56" y="35" font-family="'Inter Tight', 'Outfit', sans-serif" font-size="30" font-weight="800" fill="#1a1a1a" letter-spacing="-1.5px">dailyhunt</text>
               </svg>
             </a>
           </li>
@@ -563,10 +533,10 @@
                 </defs>
                 
                 <!-- "SCRIBBLE" in wobbly sketched style -->
-                <text x="110" y="36" font-family="'Inter Tight', 'Outfit', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="#1a1a1a" text-anchor="middle" letter-spacing="1px" filter="url(#scribble-effect)">SCRIBBLE</text>
+                <text class="scribble-text-main" x="110" y="36" font-family="'Inter Tight', 'Outfit', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="#1a1a1a" text-anchor="middle" letter-spacing="1px" filter="url(#scribble-effect)">SCRIBBLE</text>
                 
                 <!-- "CONSTRUCTIONS" in clean, wide-spaced style -->
-                <text x="112" y="58" font-family="'Inter', 'Outfit', sans-serif" font-size="10.5" font-weight="400" fill="#555555" text-anchor="middle" letter-spacing="5.5px">CONSTRUCTIONS</text>
+                <text class="scribble-text-sub" x="112" y="58" font-family="'Inter', 'Outfit', sans-serif" font-size="10.5" font-weight="400" fill="#555555" text-anchor="middle" letter-spacing="5.5px">CONSTRUCTIONS</text>
               </svg>
             </a>
           </li>
@@ -581,7 +551,7 @@
                 <path d="M 45.5,51 C 47.5,53.5 52.5,53.5 54.5,51" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" fill="none" />
                 <circle cx="50" cy="61" r="3.5" fill="currentColor" />
               </svg>
-              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; color: #1a1a1a;">Malabar Gold</span>
+              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500;">Malabar Gold</span>
             </a>
           </li>
           <li class="logoloop__item">
@@ -589,7 +559,7 @@
               <svg class="tech-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; color: #ff0000; margin-right: 12px;">
                 <path d="M7.137 23.862c.79 0 1.708-.19 2.751-.554 1.55-.538 2.784-1.281 3.986-2.009l.316-.205a29.733 29.733 0 0 0 3.764-2.72 16.574 16.574 0 0 0 5.457-7.529c.395-1.138.949-3.384.268-5.487a7.117 7.117 0 0 0-2.862-3.749c-.158-.126-1.898-1.47-5.203-1.47-3.005 0-6.31 1.107-9.806 3.32l-.11.08-.317.205a20.133 20.133 0 0 0-2.309 1.693C1.585 6.813-.091 9.106.004 11.067c.031.79.427 1.534 1.075 2.008a3.472 3.472 0 0 0 2.214.68c1.803 0 3.765-.948 5.109-1.74l.253-.157.696-.443.237-.158c1.898-1.234 3.875-2.515 6.105-3.258a5.255 5.255 0 0 1 1.55-.285 3.163 3.163 0 0 1 .664.08 2.112 2.112 0 0 1 1.47 1.106c.523 1.012.396 2.61-.316 4.08a17.871 17.871 0 0 1-4.887 5.836 19.488 19.488 0 0 1-3.194 2.215l-.095.031a9.634 9.634 0 0 1-1.471.696l-.08.032-.41.158c-2.23.57-.87-1.329-.87-1.329.474-.537.98-1.028 1.518-1.502.316-.269.633-.554.933-.854l.064-.063c.395-.38.933-.902.901-1.645-.047-.98-1.075-1.582-2.056-1.613h-.063c-.95 0-1.819.522-2.404.98a7.27 7.27 0 0 0-1.598 1.74c-.6.901-1.85 3.226-.632 5.077.49.743 1.313 1.123 2.42 1.123z"/>
               </svg>
-              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; color: #1a1a1a;">Airtel</span>
+              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500;">Airtel</span>
             </a>
           </li>
           <li class="logoloop__item">
@@ -597,7 +567,7 @@
               <svg class="tech-icon" viewBox="131 11 76 76" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; color: #ee2722; margin-right: 12px;">
                 <path d="M 191.49326,46.205106 c 2.40819,-3.14821 4.28076,-8.34891 4.28076,-13.70088 0,-10.90429 -10.20513,-21.07264 -27.11557,-21.07264 -10.38095,0 -18.62356,4.17446 -24.19632,8.93359 2.73118,-0.89132 6.61126,-1.7949 11.46443,-1.7949 12.9772,0 28.19496,10.23785 35.5667,27.63483 m -45.57559,5.15982 c -2.40818,3.14413 -4.28076,8.34891 -4.28076,13.69679 0,10.9043 10.20514,21.07263 27.11558,21.07263 10.38094,0 18.62356,-4.17446 24.19223,-8.92949 -2.7271,0.89132 -6.60718,1.7908 -11.46034,1.7908 -12.97721,0 -28.19497,-10.23376 -35.56671,-27.63073 m 20.20585,-25.36567 c -3.14413,-2.41226 -8.34892,-4.28485 -13.6968,-4.28485 -10.9002,0 -21.07263,10.20515 -21.07263,27.11967 0,10.38095 4.17446,18.61947 8.9295,24.18814 -0.89132,-2.723 -1.79081,-6.60717 -1.79081,-11.46034 0,-12.97312 10.23376,-28.19087 27.63074,-35.56262 m 32.79464,10.0048 c 0,12.97721 -10.23376,28.19497 -27.63483,35.5667 3.14413,2.4082 8.353,4.28485 13.70089,4.28485 10.90429,0 21.07263,-10.20513 21.07263,-27.11557 0,-10.38503 -4.17855,-18.62764 -8.9295,-24.19631 0.88723,2.723 1.79081,6.60717 1.79081,11.46033"/>
               </svg>
-              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; color: #1a1a1a;">Rogers</span>
+              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500;">Rogers</span>
             </a>
           </li>
           <li class="logoloop__item">
@@ -606,15 +576,15 @@
                 <!-- Yellow Fill (Doorway excluded) -->
                 <path d="M 19,53 L 49,15 L 78,51 L 79,90 L 61,90 C 61,64 32,64 32,90 L 19,90 Z" fill="#ffe600" />
                 <!-- Hand-drawn roof -->
-                <path d="M 7,54 L 49,10 L 92,50" stroke="#1a1a1a" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <path class="fido-stroke" d="M 7,54 L 49,10 L 92,50" stroke="#1a1a1a" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
                 <!-- Hand-drawn left wall -->
-                <path d="M 17,53 L 19,90" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" fill="none" />
+                <path class="fido-stroke" d="M 17,53 L 19,90" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" fill="none" />
                 <!-- Hand-drawn right wall -->
-                <path d="M 78,51 L 79,93" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" fill="none" />
+                <path class="fido-stroke" d="M 78,51 L 79,93" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" fill="none" />
                 <!-- Hand-drawn doorway arch -->
-                <path d="M 32,90 C 32,58 61,58 61,90" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" fill="none" />
+                <path class="fido-stroke" d="M 32,90 C 32,58 61,58 61,90" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" fill="none" />
               </svg>
-              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500; color: #1a1a1a;">Fido</span>
+              <span style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500;">Fido</span>
             </a>
           </li>
           <li class="logoloop__item">
@@ -648,7 +618,7 @@
   <!-- Section 1: Hero (About Me) -->
   <section id="about">
     <div class="hero-top-spacer"></div>
-    <div class="hero-middle-content" style="padding-left: 0; width: 100%; overflow: hidden; transform: translateY(80px);">
+    <div class="hero-middle-content" style="padding-left: 0; width: 100%; overflow: hidden;">
       <div class="marquee-name-container">
         <div class="marquee-name-track">
           <div class="marquee-item">
@@ -788,7 +758,7 @@
 </div>
 
 <!-- Main Interactive Scripts -->
-<script src="app.js?v=12"></script>
+<script src="app.js?v=14"></script>
 
 <script>
 (function() {
@@ -1009,18 +979,17 @@
 
     if (triggerSection && videoContainer && particlesCanvas) {
       const rect = triggerSection.getBoundingClientRect();
-      // If the top of Selected Portfolio reaches the top of viewport, hide video & particles
+      // If the top of Selected Portfolio reaches the top of viewport, hide video
       if (rect.top <= 0) {
         videoContainer.style.opacity = '0';
         videoContainer.style.visibility = 'hidden';
-        particlesCanvas.style.opacity = '0';
-        particlesCanvas.style.visibility = 'hidden';
       } else {
         videoContainer.style.opacity = '1';
         videoContainer.style.visibility = 'visible';
-        particlesCanvas.style.opacity = '1';
-        particlesCanvas.style.visibility = 'visible';
       }
+      // Ensure particles remain at 0.55 opacity (always visible)
+      particlesCanvas.style.opacity = '0.55';
+      particlesCanvas.style.visibility = 'visible';
     }
   }
   window.addEventListener('scroll', updateHeroOpacity, { passive: true });
