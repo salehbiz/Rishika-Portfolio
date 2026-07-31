@@ -1081,11 +1081,15 @@
           `;
 
           // 2. Build Feed Post Cards
-          const postsHTML = project.instagramPosts.map((post, postIdx) => {
+          const carouselsList = project.instagramPosts.filter(p => p.type === 'carousel');
+          const singlesList = project.instagramPosts.filter(p => p.type === 'single');
+          const sortedPosts = [...carouselsList, ...singlesList];
+
+          const postsHTML = sortedPosts.map((post, postIdx) => {
             const isCarousel = post.type === 'carousel';
             const slidesHTML = post.images.map((imgUrl, slideIdx) => `
-              <div class="insta-slide" style="flex: 0 0 100%; width: 100%; height: 100%; position: relative; overflow: hidden; background: #fafafa;">
-                <img src="${imgUrl}" alt="Post ${post.id} slide ${slideIdx + 1}" style="width: 100%; height: 100%; object-fit: cover;" class="insta-media" data-post-idx="${postIdx}" data-slide-idx="${slideIdx}">
+              <div class="insta-slide" style="flex: 0 0 100%; width: 100%; height: 100%; position: relative; overflow: hidden; background: #fafafa; display: flex; align-items: center; justify-content: center;">
+                <img src="${imgUrl}" alt="Post ${post.id} slide ${slideIdx + 1}" style="width: 100%; height: 100%; object-fit: contain;" class="insta-media" data-post-idx="${postIdx}" data-slide-idx="${slideIdx}">
               </div>
             `).join('');
 
@@ -1151,7 +1155,6 @@
 
                 <!-- Likes and Caption -->
                 <div style="padding: 0 14px 14px; font-family: 'Inter', sans-serif; font-size: 0.8rem; line-height: 1.45; text-align: left;">
-                  <div style="font-weight: 700; color: #1a1a1a; margin-bottom: 4px;" class="insta-likes-label">127 likes</div>
                   <span style="font-weight: 700; color: #1a1a1a; margin-right: 6px;">canadiansimglobal</span>
                   <span style="color: #444444;">Visual concept & copywriting execution. #canadiansim</span>
                 </div>
@@ -1235,7 +1238,7 @@
           `;
 
           // 5. Initialize Interactive Scripts
-          initInstagramInteractions(project.instagramPosts);
+          initInstagramInteractions(sortedPosts);
         } else if (project.layout === 'rogers-layout') {
           container.innerHTML = `
             <a href="index.html#what-we-do" class="back-to-portfolio">
