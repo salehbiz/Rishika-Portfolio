@@ -164,7 +164,7 @@ const projectsData = [
     "fileLink": "portfolio/airtel-black/Untitled-3-01_opt.jpg",
     "fileType": "image",
     "fileLabel": "View Asset",
-    "emailGif": "portfolio/airtel-black/Emailer /Platinum-EDM-3_.gif",
+    "emailMp4": "portfolio/airtel-black/Emailer /Platinum-EDM-3_.mp4",
     "gallery": [
       {
         "image": "portfolio/airtel-black/Untitled-3-01_opt.jpg",
