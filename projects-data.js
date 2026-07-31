@@ -155,12 +155,43 @@ const projectsData = [
     "client": "Bharti Airtel (Airtel Black)",
     "category": "retail",
     "categoryLabel": "Retail & OOH",
+    "layout": "airtel-layout",
+    "tagline": "One bill, one home, a more premium way to experience Airtel.",
     "scope": "Launch marketing, emailer (EDM) design, animation, & premium product presentation.",
-    "description": "A digital launch marketing strategy for Bharti Airtel's premium bundled subscription plan, Airtel Black. Design files include high-end, responsive email layouts (EDMs) and motion GIFs targeted at presenting custom fiber, DTH, and mobile bundle services as a unified, luxury consumer solution.",
+    "description": "Art directed the visual identity for Airtel Black's launch, keeping the logo and typography intact while building a new, premium look and feel. Carried across digital, social, and emailer, part of a larger launch that also spanned film and retail.",
+    "whyNeeded": "Households were managing separate bills and providers for mobile, DTH, and fiber. Airtel Black brought it all under one bill and one relationship, a simpler, more premium experience for the customer. That shift needed a look to match, so while the rest of Airtel stayed red and everyday, Black went quieter and more refined, signalling this was a different tier of service.",
     "image": "portfolio/airtel-black/Untitled-3-01_opt.jpg",
     "fileLink": "portfolio/airtel-black/Untitled-3-01_opt.jpg",
     "fileType": "image",
     "fileLabel": "View Asset",
+    "emailGif": "portfolio/airtel-black/Emailer /Platinum-EDM-3_.gif",
+    "gallery": [
+      {
+        "image": "portfolio/airtel-black/Untitled-3-01_opt.jpg",
+        "caption": "Brand Launch Visual Identity System",
+        "aspect": "landscape"
+      },
+      {
+        "image": "portfolio/airtel-black/Untitled-3-02.jpg",
+        "caption": "Launch Marketing Design Assets",
+        "aspect": "landscape"
+      },
+      {
+        "image": "portfolio/airtel-black/Untitled-3-03.jpg",
+        "caption": "Visual Identity Compliance Guidelines",
+        "aspect": "landscape"
+      },
+      {
+        "image": "portfolio/airtel-black/WhatsApp Image 2021-07-19 at 11.08.13 AM.jpeg",
+        "caption": "Campaign Art Direction & Layout",
+        "aspect": "landscape"
+      },
+      {
+        "image": "portfolio/airtel-black/Emailer /Platinum EDM 2-09.jpg",
+        "caption": "Platinum Campaign EDM Design Layout",
+        "aspect": "portrait"
+      }
+    ],
     "featuredImages": [
       "portfolio/airtel-black/Untitled-3-01_opt.jpg",
       "portfolio/airtel-black/Untitled-3-02.jpg",
