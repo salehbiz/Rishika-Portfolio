@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Rishika Walia | Art Director & Creative Lead</title>
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=14" />
   <style>
     body {
       background: #ffffff;
@@ -13,30 +13,96 @@
       padding: 0;
     }
 
-    .about-hero {
-      padding: 8rem 2rem 4rem;
-      max-width: 1200px;
+    /* About Story — single quiet column, left-aligned (per copy doc layout notes) */
+    .about-story-section {
+      position: relative;
+      z-index: 5;
+      padding: 9rem 2rem 5rem;
+    }
+
+    .about-story-container {
+      max-width: 620px;
       margin: 0 auto;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .about-hero h1 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-      font-size: 3.5rem;
-      font-weight: 500;
+    .about-story-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.75rem, 6vw, 4rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
+      color: #ffffff;
+      margin: 0 0 0.75rem;
     }
 
-    .about-hero p {
+    .about-story-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin: 0 0 3rem;
+    }
+
+    .about-story-body p {
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
-      color: #555555;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.6;
+      line-height: 1.85;
+      color: #a3a3a3;
+      margin: 0 0 1.75rem;
+    }
+
+    .about-story-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-story-block {
+      margin-top: 3.5rem;
+    }
+
+    .about-story-block + .about-story-block {
+      margin-top: 2.5rem;
+    }
+
+    .about-story-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #6f6f6f;
+      margin: 0 0 0.75rem;
+    }
+
+    .about-story-line {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: #d4d4d4;
+      margin: 0;
+    }
+
+    .about-story-cta {
+      margin-top: 4rem;
+    }
+
+    .about-story-cta-line {
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #8a8a8a;
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .about-story-section {
+        padding: 7rem 1.5rem 4rem;
+      }
     }
   </style>
 </head>
@@ -130,15 +196,27 @@
     </div>
   </section>
 
-  <!-- Welcome Section -->
-  <section class="welcome-section">
-    <div class="welcome-container">
-      <p class="welcome-subtitle">WELCOME</p>
-      <h2 class="welcome-heading">Hi, I'm Rishika<br>I craft brand <span class="cyan-text">stories</span> &amp;<br>high-impact campaigns</h2>
-      <div class="welcome-body">
-        <p>I am an Art Director and Creative Lead with 8+ years of experience spanning global advertising agencies and leading in-house brands. My practice sits at the intersection of brand systems, creative campaigns, e-commerce, and business development.</p>
-        <p>I believe design should not only capture attention but drive real, provable growth. By bridging creative direction with commercial ownership, I build systems that perform.</p>
-        <a href="portfolio/Rishika_Walia_Resume.pdf" download class="resume-btn">
+  <!-- About Story Section -->
+  <section class="about-story-section">
+    <div class="about-story-container">
+      <h1 class="about-story-name">Rishika Walia</h1>
+      <p class="about-story-role">Art Director, Toronto</p>
+      <div class="about-story-body">
+        <p>I work across brand identity, campaign creative, and digital design. My process starts with what the brand actually needs to say and who it's talking to, then builds outward from there, the identity, the campaign, the visual system, all in service of that.</p>
+        <p>I've worked both sides of the table, agency and in-house, and each taught me something the other couldn't. Agencies gave me the craft: building brand identities from the ground up, developing campaign concepts, directing photo and video shoots, presenting ideas to clients and defending them under pressure. In-house gave me the follow-through: owning a brand's entire digital and social presence, directing the content and campaigns that live inside it, and watching what I build actually perform, then going back and fixing what doesn't.</p>
+        <p>That range is really the point. I can sit in a concept meeting and also sit in a performance review, because I've done both jobs, not just one.</p>
+      </div>
+      <div class="about-story-block">
+        <p class="about-story-label">Current Obsession</p>
+        <p class="about-story-line">How AI reshapes design craft without replacing it.</p>
+      </div>
+      <div class="about-story-block">
+        <p class="about-story-label">Also Me</p>
+        <p class="about-story-line">I paint. I overanalyze restaurant menus and redesign them in my head before the food even arrives.</p>
+      </div>
+      <div class="about-story-cta">
+        <p class="about-story-cta-line">Want the full picture?</p>
+        <a href="portfolio/Rishika_Walia_Resume.pdf" target="_blank" rel="noopener" class="resume-btn">
           Download Resume
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>

@@ -151,7 +151,7 @@ const projectsData = [
   },
   {
     "id": "airtel-black",
-    "title": "Airtel Black Launch",
+    "title": "Airtel Black",
     "client": "Bharti Airtel (Airtel Black)",
     "category": "retail",
     "categoryLabel": "Retail & OOH",

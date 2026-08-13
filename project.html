@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Details | Portfolio</title>
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=14" />
   <style>
     body {
       background: #ffffff;
@@ -91,7 +91,7 @@
     }
 
     .project-content-col h1 {
-      font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 3rem;
       font-weight: 500;
       text-transform: uppercase;
@@ -206,7 +206,7 @@
     }
 
     .nav-project-btn span.nav-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 1.4rem;
       font-weight: 500;
       color: #1a1a1a;
@@ -233,7 +233,7 @@
     }
 
     .error-container h1 {
-      font-family: 'Inter Tight', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
@@ -344,23 +344,18 @@
     .instagram-grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1200px;
+      gap: 0;
+      max-width: 935px;
       margin: 3rem auto 6rem;
-      padding: 0 1rem;
       box-sizing: border-box;
     }
-    @media (max-width: 992px) {
-      .instagram-grid-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1.5rem !important;
-      }
+    .insta-grid-tile {
+      cursor: pointer;
+    }
+    .insta-grid-tile:hover .insta-media {
+      filter: brightness(0.85);
     }
     @media (max-width: 640px) {
-      .instagram-grid-container {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-      }
       .bottom-split-container {
         flex-direction: column !important;
         gap: 2.5rem !important;
@@ -387,11 +382,8 @@
     
     /* Zoom styles for images in grid and hover states */
     .insta-media {
-      cursor: zoom-in;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .insta-media:hover {
-      transform: scale(1.02);
+      cursor: pointer;
+      transition: filter 0.25s ease;
     }
 
     /* Hide scrollbar for Airtel email body mockup */
@@ -680,7 +672,8 @@
             img.addEventListener('click', (e) => {
               // Only trigger if click wasn't on slider nav controls
               if (e.target.classList.contains('insta-media')) {
-                openLightbox(index);
+                const flatIdx = parseInt(e.target.getAttribute('data-flat-idx'));
+                openLightbox(isNaN(flatIdx) ? index : flatIdx);
               }
             });
           });
@@ -807,7 +800,7 @@
                   <span style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
                 </div>
                 <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 200px;">
-                  <div class="no-image-text" style="font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; font-weight: 700; color: #999999; text-transform: uppercase; letter-spacing: 0.1em;">No Image Found</div>
+                  <div class="no-image-text" style="font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; color: #999999; text-transform: uppercase; letter-spacing: 0.1em;">No Image Found</div>
                 </div>
               </div>
             `;
@@ -879,7 +872,7 @@
           
           galleryHTML = `
             <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
-              <h2 style="font-family:'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-transform: uppercase;">Featured Slides & Guidelines</h2>
+              <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-transform: uppercase;">Featured Slides & Guidelines</h2>
               ${featuredContentHTML}
               ${archiveContentHTML}
               <div style="text-align: center; margin-top: 4rem;">
@@ -894,7 +887,7 @@
           // Storia layout: mango shake hero image at the top, and phone mockup in gallery
           galleryHTML = `
             <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem; display: flex; flex-direction: column; align-items: center;">
-              <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Instagram Campaign Feed</h2>
+              <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Instagram Campaign Feed</h2>
               ${buildPhoneGridHTML(project.imagesList, project.id)}
             </div>
           `;
@@ -929,7 +922,7 @@
           
           galleryHTML = `
             <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
-              <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Campaign Expansion</h2>
+              <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; text-align: center; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.05em;">Campaign Expansion</h2>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin: 0 auto; max-width: 1100px;">
                 ${tiles.map(tile => `
                   <div style="background: ${tile.color}; border: 1px solid rgba(0,0,0,0.06); padding: 1.5rem; border-radius: 8px; display: flex; flex-direction: column; gap: 1rem;">
@@ -985,15 +978,15 @@
           galleryHTML = `
             <div class="project-gallery-section" style="margin-top: 4rem; margin-bottom: 6rem; box-sizing: border-box;">
               <div style="background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 25px rgba(0,0,0,0.01);">
-                <h3 style="font-family:'Inter Tight', 'Inter', sans-serif; font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-top: 0; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.05em;">Performance Results</h3>
+                <h3 style="font-family:'Inter', sans-serif; font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-top: 0; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.05em;">Performance Results</h3>
                 <div style="overflow-x: auto;">
                   <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: 'Inter', sans-serif; font-size: 0.95rem;">
                     <thead>
                       <tr style="border-bottom: 2px solid #1a1a1a; font-weight: 700; color: #1a1a1a;">
-                        <th style="padding: 12px 10px; font-family:'Inter Tight', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Metric</th>
-                        <th style="padding: 12px 10px; font-family:'Inter Tight', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Before</th>
-                        <th style="padding: 12px 10px; font-family:'Inter Tight', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">After</th>
-                        <th style="padding: 12px 10px; font-family:'Inter Tight', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em; color: #1a1a1a;">Change</th>
+                        <th style="padding: 12px 10px; font-family:'Inter', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Metric</th>
+                        <th style="padding: 12px 10px; font-family:'Inter', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Before</th>
+                        <th style="padding: 12px 10px; font-family:'Inter', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">After</th>
+                        <th style="padding: 12px 10px; font-family:'Inter', sans-serif; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em; color: #1a1a1a;">Change</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -1094,7 +1087,7 @@
           
           galleryHTML = `
             <div class="project-gallery-section" style="margin-top: 5rem; margin-bottom: 6rem;">
-              <h2 style="font-family:'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-transform: uppercase;">${sectionTitle}</h2>
+              <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; margin-bottom: 3rem; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.25rem; letter-spacing: -0.02em; color: #1a1a1a; text-transform: uppercase;">${sectionTitle}</h2>
               ${featuredContentHTML}
               ${archiveContentHTML}
             </div>
@@ -1110,8 +1103,7 @@
               Back to Portfolio
             </a>
             <div class="project-top-header" style="margin-bottom: 3.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding-top: 1rem;">
-              <span class="project-title-tag" style="margin-bottom: 0.5rem; letter-spacing: 0.15em; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #777777;">${project.categoryLabel}</span>
-              <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.03em;">${project.title}</h1>
+              <h1 style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.03em;">${project.title}</h1>
               <p style="font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 500; color: #333333; max-width: 650px; margin: 0 auto; line-height: 1.6; font-style: italic;">
                 "${project.tagline}"
               </p>
@@ -1158,7 +1150,7 @@
           const galleryHTML = `
             <div class="airtel-gallery-section" style="background: #ffffff; padding: 5rem 0 2rem; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-sizing: border-box; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06);">
               <div style="max-width: 1200px; margin: 0 auto; padding: 0 4rem; box-sizing: border-box; margin-bottom: 2.5rem; text-align: center;">
-                <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.05em;">Campaign Gallery</h2>
+                <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.05em;">Campaign Gallery</h2>
                 <p style="font-family:'Inter', sans-serif; font-size: 1.05rem; color: #666666; max-width: 600px; margin: 0 auto; line-height: 1.5;">Swipe or scroll horizontally to explore creative compliance assets, branding guidelines, and OOH campaign layouts.</p>
               </div>
               
@@ -1188,7 +1180,7 @@
             <div class="project-bottom-details" style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 4rem; margin-top: 4rem;">
               <div style="display: flex; flex-direction: row; gap: 4rem; align-items: flex-start;" class="bottom-split-container">
                 <div style="width: 60%; text-align: left;" class="bottom-desc-col">
-                  <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Narrative</h2>
+                  <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Narrative</h2>
                   <div class="project-description-text" style="font-family:'Inter', sans-serif; font-size:1.05rem; line-height:1.75; color:#444444; margin-bottom:2rem;">
                     <p style="margin-top:0; margin-bottom:1.5rem;">${project.description}</p>
                   </div>
@@ -1255,7 +1247,7 @@
             </a>
             <div class="project-top-header" style="margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding-top: 1rem;">
               <span class="project-title-tag" style="margin-bottom: 0.5rem; letter-spacing: 0.15em; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #777777;">${project.categoryLabel}</span>
-              <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.03em;">${project.title}</h1>
+              <h1 style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.03em;">${project.title}</h1>
               <p style="font-family: 'Inter', sans-serif; font-size: 1.15rem; font-weight: 500; color: #333333; max-width: 650px; margin: 0 auto; line-height: 1.6; font-style: italic;">
                 "Concept to caption to design to post, CanadianSIM's Instagram run start to finish."
               </p>
@@ -1267,79 +1259,22 @@
           const singlesList = project.instagramPosts.filter(p => p.type === 'single');
           const sortedPosts = [...carouselsList, ...singlesList];
 
-          const postsHTML = sortedPosts.map((post, postIdx) => {
-            const isCarousel = post.type === 'carousel';
-            const slidesHTML = post.images.map((imgUrl, slideIdx) => `
-              <div class="insta-slide" style="flex: 0 0 100%; width: 100%; height: 100%; position: relative; overflow: hidden; background: #fafafa; display: flex; align-items: center; justify-content: center;">
-                <img src="${imgUrl}" alt="Post ${post.id} slide ${slideIdx + 1}" style="width: 100%; height: 100%; object-fit: contain;" class="insta-media" data-post-idx="${postIdx}" data-slide-idx="${slideIdx}">
-              </div>
-            `).join('');
+          let flatImgCounter = 0;
+          const postsHTML = sortedPosts.map((post) => {
+            const isCarousel = post.images.length > 1;
+            const startIdx = flatImgCounter;
+            flatImgCounter += post.images.length;
 
-            const dotIndicatorsHTML = isCarousel ? `
-              <div class="insta-carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">
-                ${post.images.map((_, idx) => `
-                  <span class="insta-dot ${idx === 0 ? 'active' : ''}" style="width: 6px; height: 6px; border-radius: 50%; background: ${idx === 0 ? '#0095f6' : 'rgba(255,255,255,0.6)'}; transition: all 0.2s;"></span>
-                `).join('')}
-              </div>
-            ` : '';
-
-            const arrowsHTML = isCarousel ? `
-              <button class="insta-nav-btn prev-btn" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; border: none; background: rgba(255,255,255,0.85); color: #000; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.2s; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">❮</button>
-              <button class="insta-nav-btn next-btn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; border: none; background: rgba(255,255,255,0.85); color: #000; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.2s; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">❯</button>
-            ` : '';
-
-            const slideCounterHTML = isCarousel ? `
-              <div class="insta-slide-counter" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 8px; border-radius: 12px; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 600; z-index: 10; pointer-events: none;">
-                1/${post.images.length}
-              </div>
+            const carouselIconHTML = isCarousel ? `
+              <svg style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; color: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4)); pointer-events: none; z-index: 2;" fill="currentColor" viewBox="0 0 48 48" aria-label="Carousel">
+                <path d="M34.8 29.7V11c0-2.9-2.3-5.2-5.2-5.2H11c-2.9 0-5.2 2.3-5.2 5.2v18.7c0 2.9 2.3 5.2 5.2 5.2h18.7c2.8-.1 5.1-2.4 5.1-5.2zM39.2 15v16.1c0 4.5-3.7 8.2-8.2 8.2H14.9c-.6 0-.9.7-.5 1.1 1 1.1 2.4 1.8 4.1 1.8h13.4c5.7 0 10.3-4.6 10.3-10.3V18.5c0-1.6-.7-3.1-1.8-4.1-.5-.4-1.2 0-1.2.6z"/>
+              </svg>
             ` : '';
 
             return `
-              <div class="instagram-post-card" style="background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; width: 100%; transition: transform 0.3s ease;">
-                <!-- Post Header -->
-                <div style="display: flex; align-items: center; padding: 10px 14px; gap: 10px; border-bottom: 1px solid rgba(0,0,0,0.04);">
-                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #e02424; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; font-family: 'Inter', sans-serif;">CS</div>
-                  <div style="flex: 1; line-height: 1.2;">
-                    <div style="font-weight: 700; font-size: 0.8rem; color: #1a1a1a; display: flex; align-items: center; gap: 4px;">
-                      canadiansimglobal
-                      <svg style="width: 12px; height: 12px; fill: #0095f6;" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    </div>
-                    <span style="font-size: 0.7rem; color: #777777;">Canada</span>
-                  </div>
-                  <svg style="width: 16px; height: 16px; color: #8e8e8e;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                </div>
-
-                <!-- Media Viewport -->
-                <div class="insta-media-viewport" style="position: relative; width: 100%; aspect-ratio: 1; overflow: hidden;" data-post-idx="${postIdx}">
-                  <div class="insta-slides-track" style="display: flex; width: 100%; height: 100%; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
-                    ${slidesHTML}
-                  </div>
-                  ${dotIndicatorsHTML}
-                  ${arrowsHTML}
-                  ${slideCounterHTML}
-                  <!-- Large Heart Double-Click Animation -->
-                  <div class="heart-popup" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); opacity: 0; pointer-events: none; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s; z-index: 12; color: #ffffff;">
-                    <svg style="width: 70px; height: 70px; fill: currentColor; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                  </div>
-                </div>
-
-                <!-- Action Bar -->
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; color: #1a1a1a;">
-                  <div style="display: flex; gap: 14px; align-items: center;">
-                    <button class="insta-like-btn" style="border: none; background: transparent; padding: 0; cursor: pointer; color: inherit; display: flex; align-items: center; transition: transform 0.2s;">
-                      <svg style="width: 24px; height: 24px;" class="heart-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    </button>
-                    <svg style="width: 22px; height: 22px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                    <svg style="width: 22px; height: 22px; transform: rotate(-20deg);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-                  </div>
-                  <svg style="width: 22px; height: 22px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-                </div>
-
-                <!-- Likes and Caption -->
-                <div style="padding: 0 14px 14px; font-family: 'Inter', sans-serif; font-size: 0.8rem; line-height: 1.45; text-align: left;">
-                  <span style="font-weight: 700; color: #1a1a1a; margin-right: 6px;">canadiansimglobal</span>
-                  <span style="color: #444444;">Visual concept & copywriting execution. #canadiansim</span>
-                </div>
+              <div class="insta-grid-tile" style="position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #efefef;">
+                <img src="${post.images[0]}" alt="Post ${post.id}" class="insta-media" data-flat-idx="${startIdx}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                ${carouselIconHTML}
               </div>
             `;
           }).join('');
@@ -1349,7 +1284,7 @@
             <div class="project-bottom-details" style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 4rem; margin-top: 4rem;">
               <div style="display: flex; flex-direction: row; gap: 4rem; align-items: flex-start;" class="bottom-split-container">
                 <div style="width: 60%; text-align: left;" class="bottom-desc-col">
-                  <h2 style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Narrative</h2>
+                  <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Narrative</h2>
                   <div class="project-description-text" style="font-family:'Inter', sans-serif; font-size:1.05rem; line-height:1.75; color:#444444; margin-bottom:2rem;">
                     ${project.description}
                   </div>
@@ -1539,8 +1474,7 @@
 
             <!-- Title Header on Top -->
             <div class="project-top-header" style="margin-bottom: 3.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding-top: 2rem;">
-              <span class="project-title-tag" style="margin-bottom: 0.75rem; letter-spacing: 0.15em;">${project.categoryLabel}</span>
-              <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.02em; line-height: 1.1;">${project.title}</h1>
+              <h1 style="font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 500; text-transform: uppercase; margin: 0 0 1rem; color: #1a1a1a; letter-spacing: 0.02em; line-height: 1.1;">${project.title}</h1>
               <p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; color: #555555; max-width: 600px; margin: 0 auto; line-height: 1.6;">${project.scope}</p>
             </div>
 
@@ -1582,7 +1516,7 @@
               
               <!-- Large Tagline Pull-Quote -->
               <div style="border-left: 3px solid #1a1a1a; padding-left: 2rem; margin-bottom: 4rem; box-sizing: border-box;">
-                <p style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 1.85rem; font-style: italic; line-height: 1.45; color: #1a1a1a; margin: 0; font-weight: 400; letter-spacing: -0.01em; text-align: left;">
+                <p style="font-family: 'Outfit', sans-serif; font-size: 1.85rem; font-style: italic; line-height: 1.45; color: #1a1a1a; margin: 0; font-weight: 400; letter-spacing: -0.01em; text-align: left;">
                   "A simpler checkout took conversion from 3.96% to 7.33%, nearly doubling it."
                 </p>
               </div>
@@ -1590,42 +1524,42 @@
               <!-- Case Study Credits (Clean Grid Inside the Flow) -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 4rem; background: #f8fafc; border: 1px solid rgba(0,0,0,0.06); padding: 2rem; border-radius: 12px; box-sizing: border-box;">
                 <div>
-                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Client</strong>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Client</strong>
                   <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">${project.client}</span>
                 </div>
                 <div>
-                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Company</strong>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Company</strong>
                   <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">${project.company}</span>
                 </div>
                 <div>
-                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Project</strong>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Project</strong>
                   <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">Prepaid Website Redesign</span>
                 </div>
                 <div>
-                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter Tight', 'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Role & Deliverables</strong>
+                  <strong style="display:block; font-size:0.75rem; color:#777777; text-transform:uppercase; font-family:'Inter', sans-serif; letter-spacing:0.05em; margin-bottom:4px;">Role & Deliverables</strong>
                   <span style="font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:600; color:#1a1a1a;">Web Design, User Journey Mapping</span>
                 </div>
               </div>
 
               <!-- Detailed Case Study Narrative -->
               <div class="project-description-text" style="font-family:'Inter', sans-serif; font-size:1.05rem; line-height:1.8; color:#444444; text-align: left; margin-bottom: 4rem;">
-                <h2 style="font-family:'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Overview</h2>
+                <h2 style="font-family:'Outfit', sans-serif; font-size: 2.25rem; font-weight:500; text-transform: uppercase; margin-top: 0; margin-bottom: 2rem; color: #1a1a1a; letter-spacing: 0.02em;">Project Overview</h2>
                 
                 <p style="margin-top: 0; margin-bottom: 1.5rem;">
                   <strong>CanadianSIM</strong> provides Canadian phone numbers and SIM plans to newcomers, international students, and pre-arrival travellers before they even land in the country.
                 </p>
                 
-                <h3 style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-top: 2.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em;">The Challenge</h3>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-top: 2.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em;">The Challenge</h3>
                 <p style="margin-bottom: 1.5rem;">
                   Originally, a single unified website served both prepaid and postpaid users. Its lengthy, complex checkout flow was quietly costing the business sales. Prepaid buyers—mostly short-term tourist visitors and temporary visa holders—were dropping off at a high rate before completing their orders due to unnecessary steps and information requirements.
                 </p>
                 
-                <h3 style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-top: 2.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em;">The Solution</h3>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-top: 2.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em;">The Solution</h3>
                 <p style="margin-bottom: 1.5rem;">
                   We focused on a user-centric checkout optimization strategy. We first tested a simplified <strong>Shopify Quick Checkout</strong> flow specifically for prepaid users. After this targeted change proved highly successful in capturing real orders, we led a comprehensive full redesign of the prepaid website built entirely around this streamlined, low-friction checkout logic.
                 </p>
                 
-                <h3 style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-top: 2.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em;">The Impact</h3>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-top: 2.5rem; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em;">The Impact</h3>
                 <p style="margin-bottom: 0;">
                   The combination of a clean, responsive layout and a friction-free order flow transformed the prepaid business. The conversion rate nearly doubled, bounce rates dropped significantly, and total daily order volume and daily revenues scaled rapidly across all core metrics.
                 </p>
