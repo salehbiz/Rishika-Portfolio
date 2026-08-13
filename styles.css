@@ -1232,8 +1232,8 @@ nav .social svg {
 
 .marquee-name-track {
   display: inline-flex;
-  gap: 4rem; /* Gap between marquee-item names when dots are hidden */
-  padding-right: 4rem;
+  gap: clamp(5rem, 10vw, 9rem); /* Scales with the name size so repeats read separately */
+  padding-right: clamp(5rem, 10vw, 9rem); /* Must match gap for a seamless loop */
   animation: marquee-right 36s linear infinite;
   width: max-content;
   will-change: transform;
